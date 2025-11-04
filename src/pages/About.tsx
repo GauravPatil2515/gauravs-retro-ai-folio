@@ -18,21 +18,21 @@ const About = () => {
 
         {/* Feature Cards */}
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 md:mb-16">
-          <Card className="p-6 md:p-10 bg-white hover:shadow-2xl transition-all duration-500 animate-slide-in-right rounded-2xl border border-gray-100 group">
+          <Card className="p-6 md:p-10 bg-white hover:shadow-2xl transition-all duration-500 animate-slide-in-right rounded-2xl border border-gray-100 group relative overflow-hidden">
             <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
               <Brain className="w-7 h-7 md:w-8 md:h-8 text-white" />
             </div>
-            <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#1A1A1A]">AI & Machine Learning</h3>
+            <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">AI & Machine Learning</h3>
             <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base">
               Building intelligent solutions with deep learning, computer vision, and NLP for real-world healthcare applications
             </p>
           </Card>
           
-          <Card className="p-6 md:p-10 bg-white hover:shadow-2xl transition-all duration-500 animate-slide-in-left rounded-2xl border border-gray-100 group" style={{ animationDelay: '0.2s' }}>
+          <Card className="p-6 md:p-10 bg-white hover:shadow-2xl transition-all duration-500 animate-slide-in-left rounded-2xl border border-gray-100 group relative overflow-hidden" style={{ animationDelay: '0.2s' }}>
             <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-2xl w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
               <Code className="w-7 h-7 md:w-8 md:h-8 text-white" />
             </div>
-            <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#1A1A1A]">Backend Development</h3>
+            <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">Backend Development</h3>
             <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base">
               Designing scalable APIs and robust backend systems with Flask, FastAPI, and modern cloud technologies
             </p>

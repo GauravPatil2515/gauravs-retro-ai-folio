@@ -14,29 +14,29 @@ const Services = () => {
         </p>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-16 md:mb-20">
-          <div className="animate-scale-in bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-scale-in bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group relative overflow-hidden" style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 md:p-3 group-hover:scale-110 transition-transform duration-300">
                 <Brain className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A]">AI & Machine Learning</h3>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">AI & Machine Learning</h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "LangChain", "Hugging Face", "SHAP", "U-Net++", "OpenCV", "ViT", "Detectron2", "Grad-CAM", "Mask R-CNN", "SentenceTransformers"].map(skill => (
+              {["PyTorch", "TensorFlow", "LangChain", "Hugging Face", "OpenCV", "YOLO", "BERT", "Scikit-learn"].map(skill => (
                 <span key={skill} className="skill-tag text-xs md:text-sm">{skill}</span>
               ))}
             </div>
           </div>
 
-          <div className="animate-scale-in bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group" style={{ animationDelay: '0.5s' }}>
+          <div className="animate-scale-in bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group relative overflow-hidden" style={{ animationDelay: '0.5s' }}>
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 md:p-3 group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A]">Backend Development</h3>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">Backend Development</h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["Python", "C", "SQL", "Flask", "FastAPI", "Docker", "Git", "Streamlit", "Power BI", "Jupyter"].map(skill => (
+              {["Python", "Flask", "FastAPI", "PostgreSQL", "MongoDB", "Docker", "Redis", "Git"].map(skill => (
                 <span key={skill} className="skill-tag text-xs md:text-sm">{skill}</span>
               ))}
             </div>
@@ -55,22 +55,13 @@ const Services = () => {
                 Let's discuss how we can build something amazing together.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex justify-center">
                 <Button
-                  onClick={() => window.location.href = 'mailto:gauravpatil2516@gmail.com'}
-                  className="bg-[#1A1A1A] text-white px-8 py-6 rounded-xl text-base font-semibold hover:bg-[#2A2A2A] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                  onClick={() => window.location.href = '/contact'}
+                  className="group relative bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white px-10 md:px-12 py-6 rounded-2xl text-base md:text-lg font-semibold hover:from-[#2A2A2A] hover:via-[#1A1A1A] hover:to-[#2A2A2A] transition-all duration-500 hover:scale-105 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_50px_rgba(0,0,0,0.35)] overflow-hidden"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Send an Email
-                </Button>
-                
-                <Button
-                  onClick={() => window.open('https://calendly.com/gauravpatil2516', '_blank')}
-                  variant="outline"
-                  className="border-2 border-[#1A1A1A] text-[#1A1A1A] px-8 py-6 rounded-xl text-base font-semibold hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book a Meeting
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span className="relative z-10">Get in Touch</span>
                 </Button>
               </div>
 

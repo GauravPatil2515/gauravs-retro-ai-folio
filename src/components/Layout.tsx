@@ -47,61 +47,70 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="min-h-screen bg-background relative">
       {/* Dense Tech Background Pattern for All Pages */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0">
-        <div className="absolute inset-0 flex flex-wrap items-center justify-center opacity-[0.025] text-[#1A1A1A] font-bold leading-none">
-          {/* Row 1 */}
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">PyTorch</span>
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">CNN</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">Flask</span>
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">LSTM</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Docker</span>
+        <div className="absolute inset-0 flex flex-wrap items-center justify-center opacity-[0.03] text-[#1A1A1A] font-bold leading-none gap-x-3 gap-y-2 p-4">
+          {/* Denser layout with more keywords */}
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">PyTorch</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] mx-1">CNN</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1 md:mx-2">Flask</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] mx-1">LSTM</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1 md:mx-2">Docker</span>
+          <span className="text-[2rem] sm:text-[3rem] md:text-[3.5rem] mx-1">Scikit</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1">MLOps</span>
           
-          {/* Row 2 */}
-          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">TensorFlow</span>
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">Redis</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">FastAPI</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">BERT</span>
+          <span className="text-[4.5rem] sm:text-[5.5rem] md:text-[7rem] mx-1 md:mx-2">TensorFlow</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] mx-1 md:mx-2">Redis</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] mx-1">FastAPI</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">BERT</span>
+          <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] mx-1">NumPy</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[4.5rem] mx-1">Pandas</span>
           
-          {/* Row 3 */}
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">PostgreSQL</span>
-          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">RAG</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-3 my-1">MongoDB</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-4 my-1">Django</span>
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">YOLO</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] mx-1">PostgreSQL</span>
+          <span className="text-[5rem] sm:text-[6rem] md:text-[8rem] mx-1 md:mx-2">RAG</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1">MongoDB</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1 md:mx-2">Django</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] mx-1">YOLO</span>
+          <span className="text-[2rem] sm:text-[3rem] md:text-[3.5rem] mx-1">Celery</span>
+          <span className="text-[3rem] sm:text-[3.5rem] md:text-[4rem] mx-1">XGBoost</span>
           
-          {/* Row 4 */}
-          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Kafka</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">LangChain</span>
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">AWS</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">GPT</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">RabbitMQ</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1 md:mx-2">Kafka</span>
+          <span className="text-[4.5rem] sm:text-[5.5rem] md:text-[7rem] mx-1">LangChain</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] mx-1 md:mx-2">AWS</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1">GPT</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">RabbitMQ</span>
+          <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] mx-1">K8s</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[4.5rem] mx-1">Vector DB</span>
           
-          {/* Row 5 */}
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Keras</span>
-          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">NLP</span>
-          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Nginx</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">OpenCV</span>
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">GCP</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] mx-1">Keras</span>
+          <span className="text-[5rem] sm:text-[6rem] md:text-[8rem] mx-1 md:mx-2">NLP</span>
+          <span className="text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] mx-1">Nginx</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1 md:mx-2">OpenCV</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] mx-1">GCP</span>
+          <span className="text-[2rem] sm:text-[3rem] md:text-[3.5rem] mx-1">SHAP</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1">Azure</span>
           
-          {/* Row 6 */}
-          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Pandas</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">Vertex AI</span>
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">ViT</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">NumPy</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Gunicorn</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">Vertex AI</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] mx-1">ViT</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1 md:mx-2">Gunicorn</span>
+          <span className="text-[4.5rem] sm:text-[5.5rem] md:text-[7rem] mx-1">Transformers</span>
+          <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] mx-1">CUDA</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[4.5rem] mx-1">Embeddings</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1 md:mx-2">LLM</span>
           
-          {/* Row 7 */}
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">SHAP</span>
-          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">Transformers</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-3 my-1">K8s</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-4 my-1">LLM</span>
-          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">CUDA</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1 md:mx-2">U-Net</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] mx-1">gRPC</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1">ResNet</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">Airflow</span>
+          <span className="text-[2rem] sm:text-[3rem] md:text-[3.5rem] mx-1">SQL</span>
+          <span className="text-[3rem] sm:text-[3.5rem] md:text-[4rem] mx-1">NoSQL</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] mx-1">CI/CD</span>
           
-          {/* Row 8 */}
-          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Celery</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">U-Net</span>
-          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">gRPC</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">ResNet</span>
-          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Airflow</span>
+          <span className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] mx-1">Attention</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-1 md:mx-2">Fine-tuning</span>
+          <span className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] mx-1">SVM</span>
+          <span className="text-[3rem] sm:text-[4rem] md:text-[5rem] mx-1">Random Forest</span>
+          <span className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] mx-1">Git</span>
+          <span className="text-[3.5rem] sm:text-[4rem] md:text-[5rem] mx-1 md:mx-2">OAuth</span>
+          <span className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] mx-1">JWT</span>
         </div>
       </div>
       

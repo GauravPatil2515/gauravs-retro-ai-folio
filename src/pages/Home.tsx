@@ -6,7 +6,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Name */}
           <h1 
-            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-fade-in-up"
+            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-fade-in-up group cursor-default transition-colors duration-300 hover:text-[#CD7F5E]"
             style={{
               fontSize: 'clamp(2.5rem, 10vw, 6.5rem)',
               letterSpacing: '-0.03em',
@@ -19,7 +19,7 @@ const Home = () => {
           
           {/* Subtitle with mixed weights */}
           <p 
-            className="text-[#2A2A2A] mb-6 md:mb-8 animate-slide-in-right px-4"
+            className="text-[#2A2A2A] mb-6 md:mb-8 animate-slide-in-right px-4 cursor-default"
             style={{
               fontSize: 'clamp(1.25rem, 4vw, 2.25rem)',
               lineHeight: '1.3',
@@ -27,12 +27,12 @@ const Home = () => {
               animationDelay: '0.2s'
             }}
           >
-            I am a <span className="font-bold">Backend Developer & AI/ML Engineer</span>
+            I am a <span className="font-bold transition-colors duration-300 hover:text-[#CD7F5E]">Backend Developer & AI/ML Engineer</span>
           </p>
           
           {/* Description */}
           <p 
-            className="text-[#6B7280] mb-10 md:mb-12 mx-auto animate-fade-in px-4"
+            className="text-[#6B7280] mb-10 md:mb-12 mx-auto animate-fade-in px-4 cursor-default transition-colors duration-300 hover:text-[#4A4A4A]"
             style={{
               fontSize: 'clamp(1rem, 2vw, 1.125rem)',
               lineHeight: '1.8',
@@ -41,7 +41,7 @@ const Home = () => {
               animationDelay: '0.4s'
             }}
           >
-            I create innovative AI applications and scalable backend solutions that drive real-world impact
+            I create <span className="transition-colors duration-300 hover:text-[#CD7F5E]">innovative AI applications</span> and <span className="transition-colors duration-300 hover:text-[#CD7F5E]">scalable backend solutions</span> that drive real-world impact
           </p>
           
           {/* CTA Buttons */}
