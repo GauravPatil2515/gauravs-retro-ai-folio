@@ -46,17 +46,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 mt-6 md:mt-8">
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 px-4 md:px-6 py-3.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-all duration-500">
+          <div className="glass-effect rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 px-4 md:px-6 py-3.5 hover:shadow-[0_12px_50px_rgb(0,0,0,0.18)] transition-all duration-500 backdrop-blur-xl">
             <div className="flex items-center justify-between gap-2 md:gap-4">
               {/* Logo */}
               <Link 
                 to="/" 
                 className="flex items-center gap-2 group flex-shrink-0"
               >
-                <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md group-hover:shadow-xl">
-                  <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] rounded-xl p-2.5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" style={{ animationDuration: '3s' }}></div>
+                  <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-white relative z-10" />
                 </div>
               </Link>
 
@@ -64,9 +65,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <div className="flex items-center gap-1 md:gap-2">
                 <Link
                   to="/"
-                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
                     isActive('/') 
-                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] shadow-lg font-semibold' 
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
@@ -74,9 +75,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </Link>
                 <Link
                   to="/about"
-                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
                     isActive('/about') 
-                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] shadow-lg font-semibold' 
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
@@ -84,9 +85,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </Link>
                 <Link
                   to="/achievements"
-                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
                     isActive('/achievements') 
-                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] shadow-lg font-semibold' 
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
@@ -95,9 +96,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </Link>
                 <Link
                   to="/services"
-                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
                     isActive('/services') 
-                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] shadow-lg font-semibold' 
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
@@ -105,9 +106,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </Link>
                 <Link
                   to="/experience"
-                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
                     isActive('/experience') 
-                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] shadow-lg font-semibold' 
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
@@ -136,10 +137,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 rounded-2xl bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] hover:from-[#2A2A2A] hover:to-[#1A1A1A] transition-all duration-300 hover:scale-110 shadow-xl hover:shadow-2xl z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 rounded-2xl bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#2A2A2A] hover:via-[#1A1A1A] hover:to-[#2A2A2A] transition-all duration-500 hover:scale-110 shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group relative overflow-hidden"
           aria-label="Back to top"
         >
-          <ChevronUp className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:animate-bounce" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          <ChevronUp className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:animate-bounce relative z-10" />
         </button>
       )}
     </div>

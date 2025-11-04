@@ -108,15 +108,17 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-5 animate-scale-in px-4" style={{ animationDelay: '0.6s' }}>
             <button
               onClick={() => window.location.href = '/services'}
-              className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white px-8 md:px-10 py-4 rounded-xl text-sm md:text-base font-semibold hover:from-[#2A2A2A] hover:to-[#1A1A1A] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              className="group relative bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white px-8 md:px-10 py-4 rounded-2xl text-sm md:text-base font-semibold hover:from-[#2A2A2A] hover:via-[#1A1A1A] hover:to-[#2A2A2A] transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_50px_rgba(0,0,0,0.35)] hover:scale-105 overflow-hidden"
             >
-              View My Work
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <span className="relative z-10">View My Work</span>
             </button>
             <button
               onClick={() => window.location.href = '/services'}
-              className="bg-white border-2 border-[#E5E7EB] text-[#1A1A1A] px-8 md:px-10 py-4 rounded-xl text-sm md:text-base font-semibold hover:border-[#1A1A1A] hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="group relative bg-white border-2 border-[#E5E7EB] text-[#1A1A1A] px-8 md:px-10 py-4 rounded-2xl text-sm md:text-base font-semibold hover:border-[#1A1A1A] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-500 hover:scale-105 overflow-hidden hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100"
             >
-              Get in Touch
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1A1A1A]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <span className="relative z-10">Get in Touch</span>
             </button>
           </div>
         </div>

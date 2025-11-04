@@ -51,10 +51,11 @@ const About = () => {
             <a 
               href="/resume/Gaurav_Patil_Resume.pdf"
               download="Gaurav_Patil_Resume.pdf"
-              className="inline-flex items-center gap-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white rounded-xl transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg text-sm md:text-base px-6 md:px-8 py-3 font-semibold"
+              className="group relative inline-flex items-center gap-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-gradient-to-br hover:from-[#1A1A1A] hover:via-[#2A2A2A] hover:to-[#1A1A1A] hover:text-white rounded-2xl transition-all duration-500 hover:scale-105 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] text-sm md:text-base px-6 md:px-8 py-3 font-semibold overflow-hidden"
             >
-              <ExternalLink className="w-4 h-4" />
-              Download Resume
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <ExternalLink className="w-4 h-4 relative z-10 group-hover:rotate-12 transition-transform duration-500" />
+              <span className="relative z-10">Download Resume</span>
             </a>
           </div>
         </div>
