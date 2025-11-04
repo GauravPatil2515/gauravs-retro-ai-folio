@@ -1,0 +1,88 @@
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Code, Brain, Eye, Database, Mail, Calendar } from "lucide-react";
+
+const Services = () => {
+  return (
+    <div className="min-h-screen bg-background py-12 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16">
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6 text-center animate-on-scroll">
+          What I Do
+        </h1>
+        <p className="text-center text-base md:text-lg text-[#4A4A4A] mb-12 md:mb-16 max-w-3xl mx-auto animate-on-scroll animate-delay-1 px-4">
+          Specialized in AI/ML and Backend Development with expertise in these technologies
+        </p>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-16 md:mb-20">
+          <div className="animate-on-scroll bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 md:p-3 group-hover:scale-110 transition-transform duration-300">
+                <Brain className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A]">AI & Machine Learning</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "LangChain", "Hugging Face", "SHAP", "U-Net++", "OpenCV", "ViT", "Detectron2", "Grad-CAM", "Mask R-CNN", "SentenceTransformers"].map(skill => (
+                <span key={skill} className="skill-tag text-xs md:text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="animate-on-scroll animate-delay-1 bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 md:p-3 group-hover:scale-110 transition-transform duration-300">
+                <Code className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[#1A1A1A]">Backend Development</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "C", "SQL", "Flask", "FastAPI", "Docker", "Git", "Streamlit", "Power BI", "Jupyter"].map(skill => (
+                <span key={skill} className="skill-tag text-xs md:text-sm">{skill}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Contact CTA Section */}
+        <div className="max-w-4xl mx-auto animate-on-scroll animate-delay-2">
+          <Card className="bg-gradient-to-br from-gray-50 to-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500">
+            <div className="text-center">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-3 md:mb-4">
+                Let's Work Together
+              </h2>
+              <p className="text-base md:text-lg text-[#4A4A4A] mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+                Interested in collaborating on AI/ML projects or need backend development expertise? 
+                Let's discuss how we can build something amazing together.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  onClick={() => window.location.href = 'mailto:your.email@example.com'}
+                  className="bg-[#1A1A1A] text-white px-8 py-6 rounded-xl text-base font-semibold hover:bg-[#2A2A2A] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Send an Email
+                </Button>
+                
+                <Button
+                  onClick={() => window.open('https://calendly.com/your-link', '_blank')}
+                  variant="outline"
+                  className="border-2 border-[#1A1A1A] text-[#1A1A1A] px-8 py-6 rounded-xl text-base font-semibold hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book a Meeting
+                </Button>
+              </div>
+
+              <p className="text-sm text-[#6B7280] mt-6 md:mt-8">
+                Typical response time: Within 24 hours
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Services;

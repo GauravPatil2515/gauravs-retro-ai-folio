@@ -1,0 +1,149 @@
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronUp, ChevronDown } from "lucide-react";
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const animateVisibleElements = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight - 100;
+        if (isVisible) {
+          el.classList.add('animate-fade-in-up');
+        }
+      });
+    };
+
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 500);
+      animateVisibleElements();
+      
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+    };
+
+    animateVisibleElements();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 mt-6 md:mt-8">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 px-4 md:px-6 py-3.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-all duration-500">
+            <div className="flex items-center justify-between gap-2 md:gap-4">
+              {/* Logo */}
+              <Link 
+                to="/" 
+                className="flex items-center gap-2 group flex-shrink-0"
+              >
+                <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md group-hover:shadow-xl">
+                  <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                </div>
+              </Link>
+
+              {/* Nav Links */}
+              <div className="flex items-center gap-1 md:gap-2">
+                <Link
+                  to="/"
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                    isActive('/') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                    isActive('/about') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
+                  }`}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/achievements"
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                    isActive('/achievements') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
+                  }`}
+                >
+                  <span className="hidden sm:inline">Achievements</span>
+                  <span className="sm:hidden">Awards</span>
+                </Link>
+                <Link
+                  to="/services"
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                    isActive('/services') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
+                  }`}
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/experience"
+                  className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-300 ${
+                    isActive('/experience') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] shadow-lg font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
+                  }`}
+                >
+                  <span className="hidden sm:inline">Experience</span>
+                  <span className="sm:hidden">Work</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="pt-24">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-6 md:py-8 mt-16 md:mt-20 bg-gradient-to-b from-transparent to-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-[#4A4A4A] text-xs md:text-sm">
+          © 2025 Gaurav Patil - Designed with care, built with code
+        </div>
+      </footer>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 rounded-2xl bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] hover:from-[#2A2A2A] hover:to-[#1A1A1A] transition-all duration-300 hover:scale-110 shadow-xl hover:shadow-2xl z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group"
+          aria-label="Back to top"
+        >
+          <ChevronUp className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:animate-bounce" />
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default Layout;

@@ -1,73 +1,146 @@
-# Welcome to your Lovable project
+# Gaurav Patil - AI/ML Engineer Portfolio 🚀
 
-## Project info
+A modern, retro-styled portfolio showcasing AI/ML engineering projects, healthcare tech innovations, and professional achievements.
 
-**URL**: https://lovable.dev/projects/125f57f5-4a1a-4fd1-9a11-2a314806055e
+## 🎨 Design Features
 
-## How can I edit this code?
+- **Retro Monochrome Design**: Off-white background (#FAF9F6) with burnt orange accents (#CD7F5E)
+- **Typography**: Space Grotesk for headings, Inter for body text
+- **Fully Responsive**: Mobile-first design with smooth animations
+- **100% Opaque Text**: High contrast for maximum readability
+- **Smooth Interactions**: Hover effects, scroll animations, and transitions
 
-There are several ways of editing your application.
+## 🛠️ Technologies Used
 
-**Use Lovable**
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **Fonts**: Google Fonts (Space Grotesk, Inter)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/125f57f5-4a1a-4fd1-9a11-2a314806055e) and start prompting.
+## 📦 Installation & Setup
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js 18+ and npm installed
 
-**Use your preferred IDE**
+### Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone the repository
+git clone https://github.com/GauravPatil2515/gauravs-retro-ai-folio.git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory
+cd gauravs-retro-ai-folio
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Deployment
 
-**Use GitHub Codespaces**
+This project is **Netlify-ready** and can be deployed in minutes!
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Quick Deploy to Netlify
 
-## What technologies are used for this project?
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/GauravPatil2515/gauravs-retro-ai-folio)
 
-This project is built with:
+### Manual Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. **Build the project:**
+   ```bash
+   npm run build
+   ```
 
-## How can I deploy this project?
+2. **Deploy the `dist` folder** to Netlify via:
+   - Git integration (recommended)
+   - Netlify CLI
+   - Drag & drop at [app.netlify.com/drop](https://app.netlify.com/drop)
 
-Simply open [Lovable](https://lovable.dev/projects/125f57f5-4a1a-4fd1-9a11-2a314806055e) and click on Share -> Publish.
+📖 **Full deployment guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md)
 
-## Can I connect a custom domain to my Lovable project?
+### Build Configuration
 
-Yes, you can!
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+- **Node version:** 18 (specified in `.nvmrc`)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📁 Project Structure
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+gauravs-retro-ai-folio/
+├── public/              # Static assets
+│   ├── _redirects      # Netlify SPA routing
+│   └── robots.txt
+├── src/
+│   ├── components/     # UI components (shadcn/ui)
+│   ├── pages/          # Page components
+│   │   ├── Index.tsx   # Main portfolio page
+│   │   └── NotFound.tsx
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utilities
+│   ├── App.tsx         # App component
+│   ├── main.tsx        # Entry point
+│   └── index.css       # Global styles
+├── netlify.toml        # Netlify configuration
+├── .nvmrc              # Node version
+└── package.json        # Dependencies
+```
+
+## 🎯 Features
+
+### Sections
+- **Hero**: Compelling introduction with dual CTAs
+- **About**: Three feature cards (AI/ML, Healthcare, Production-Ready)
+- **Projects**: Alternating layout showcasing:
+  - Neuro-RAG (Mental health diagnostics)
+  - Retinal Vessel Segmentation
+  - DermAI (Skin disease classification)
+- **Experience**: Timeline of work and leadership roles
+- **Achievements**: Hackathon wins and certifications
+- **Skills**: Categorized tech stack
+- **Contact**: Contact information with social links
+
+### Interactive Elements
+- Sticky navigation with smooth scroll
+- Scroll-triggered fade-in animations
+- Hover effects on cards and buttons
+- Back-to-top floating button
+- Responsive hamburger menu (mobile)
+
+## 🔧 Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Connect
+
+- **Email**: gauravpatil2516@gmail.com
+- **Location**: Thane, Maharashtra, India
+- **GitHub**: [Your GitHub Profile]
+- **LinkedIn**: [Your LinkedIn Profile]
+
+---
+
+**Built with ❤️ using React, TypeScript, and Tailwind CSS**

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,81 +10,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Retro Monochrome Palette */
-    --background: 40 25% 98%;        /* Off-white #FAF9F6 */
+    /* Premium Retro Design System */
+    --background: 48 19% 98%;        /* Off-white #FAF9F6 */
     --foreground: 0 0% 10%;          /* Deep charcoal #1A1A1A */
 
-    --card: 0 0% 100%;
+    --card: 0 0% 100%;               /* Pure white for cards */
     --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 0 0% 10%;             /* Charcoal for primary actions */
-    --primary-foreground: 40 25% 98%;
+    --primary: 0 0% 10%;             /* Charcoal */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 95%;           /* Light gray */
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 0 0% 29%;           /* Medium gray #4A4A4A */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 42%;    /* Medium gray #6B6B6B */
+    --muted: 45 11% 92%;             /* Very light gray #E8E6E3 */
+    --muted-foreground: 0 0% 29%;    /* Medium gray #4A4A4A */
 
-    --accent: 20 60% 59%;            /* Burnt orange #D97D54 */
+    --accent: 19 50% 59%;            /* Burnt orange #CD7F5E */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;              /* Light gray #E5E5E5 */
-    --input: 0 0% 90%;
-    --ring: 20 60% 59%;              /* Accent ring */
+    --border: 45 11% 92%;            /* Very light gray #E8E6E3 */
+    --input: 45 11% 92%;
+    --ring: 19 50% 59%;              /* Burnt orange */
 
     --radius: 0.5rem;
     
     /* Custom design tokens */
-    --text-secondary: 0 0% 42%;      /* Medium gray for secondary text */
-    --gradient-subtle: linear-gradient(135deg, hsl(40 25% 98%), hsl(0 0% 97%));
-    --shadow-card: 0 4px 24px -8px hsl(0 0% 0% / 0.08);
-    --shadow-card-hover: 0 8px 32px -8px hsl(0 0% 0% / 0.12);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --text-secondary: 0 0% 29%;      /* Medium gray #4A4A4A - fully opaque */
+    --grid-subtle: 36 9% 94%;        /* #F0EFEC for background grid */
+    --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.12);
+    --transition-smooth: all 0.3s ease;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 0 0% 10%;
-    --foreground: 40 25% 98%;
+    --foreground: 48 19% 98%;
     --card: 0 0% 12%;
-    --card-foreground: 40 25% 98%;
+    --card-foreground: 48 19% 98%;
     --popover: 0 0% 12%;
-    --popover-foreground: 40 25% 98%;
-    --primary: 40 25% 98%;
+    --popover-foreground: 48 19% 98%;
+    --primary: 48 19% 98%;
     --primary-foreground: 0 0% 10%;
     --secondary: 0 0% 18%;
-    --secondary-foreground: 40 25% 98%;
+    --secondary-foreground: 48 19% 98%;
     --muted: 0 0% 18%;
     --muted-foreground: 0 0% 60%;
-    --accent: 20 60% 59%;
+    --accent: 19 50% 59%;
     --accent-foreground: 0 0% 10%;
     --destructive: 0 62.8% 40%;
-    --destructive-foreground: 40 25% 98%;
+    --destructive-foreground: 48 19% 98%;
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 20 60% 59%;
+    --ring: 19 50% 59%;
   }
 }
 
@@ -95,7 +90,7 @@ html {
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -109,17 +104,52 @@ html {
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 400;
   }
 
-  /* Typography improvements */
+  /* Typography system - fully opaque, readable */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+
+  h1 {
+    font-size: 4.5rem; /* 72px */
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 3rem; /* 48px */
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 2rem; /* 32px */
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3rem; /* 48px mobile */
+    }
+    
+    h2 {
+      font-size: 2.25rem; /* 36px mobile */
+    }
   }
 
   /* Utility classes */
   .text-secondary {
     color: hsl(var(--text-secondary));
+    opacity: 1; /* Fully opaque */
   }
 
   .card-shadow {
@@ -134,20 +164,68 @@ html {
     transition: var(--transition-smooth);
   }
 
-  /* Scroll animation class - no initial opacity, content visible by default */
+  /* Scroll animation class */
   .animate-on-scroll.animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out;
+    animation: fade-in-up 0.6s ease-out forwards;
   }
 
   .animate-delay-1 {
-    animation-delay: 0.1s;
-  }
-
-  .animate-delay-2 {
     animation-delay: 0.2s;
   }
 
+  .animate-delay-2 {
+    animation-delay: 0.4s;
+  }
+
   .animate-delay-3 {
-    animation-delay: 0.3s;
+    animation-delay: 0.6s;
+  }
+
+  /* Background grid pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--grid-subtle)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-subtle)) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Skill tag styles */
+  .skill-tag {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .skill-tag:hover {
+    border-color: hsl(var(--accent));
+    transform: scale(1.02);
+  }
+
+  /* Hover states for interactive elements */
+  button, a {
+    transition: all 0.3s ease;
+  }
+
+  button:hover, a:hover {
+    transform: scale(1.02);
+  }
+
+  /* Card hover lift effect */
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Navbar scroll shadow */
+  nav.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 }
