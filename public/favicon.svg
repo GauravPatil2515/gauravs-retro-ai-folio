@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2A2A2A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad)"/>
+  
+  <!-- AI/Neural Network Pattern -->
+  <!-- Nodes -->
+  <circle cx="30" cy="30" r="4" fill="#CD7F5E"/>
+  <circle cx="70" cy="30" r="4" fill="#CD7F5E"/>
+  <circle cx="50" cy="50" r="5" fill="#FAF9F6"/>
+  <circle cx="30" cy="70" r="4" fill="#CD7F5E"/>
+  <circle cx="70" cy="70" r="4" fill="#CD7F5E"/>
+  
+  <!-- Connections -->
+  <line x1="30" y1="30" x2="50" y2="50" stroke="#FAF9F6" stroke-width="2" opacity="0.6"/>
+  <line x1="70" y1="30" x2="50" y2="50" stroke="#FAF9F6" stroke-width="2" opacity="0.6"/>
+  <line x1="30" y1="70" x2="50" y2="50" stroke="#FAF9F6" stroke-width="2" opacity="0.6"/>
+  <line x1="70" y1="70" x2="50" y2="50" stroke="#FAF9F6" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Letter G stylized -->
+  <path d="M 45 35 Q 35 35 35 45 Q 35 55 45 55 L 50 55 L 50 50 L 45 50 Q 40 50 40 45 Q 40 40 45 40 L 55 40 L 55 45 L 60 45 L 60 35 Z" fill="#FAF9F6"/>
+</svg>

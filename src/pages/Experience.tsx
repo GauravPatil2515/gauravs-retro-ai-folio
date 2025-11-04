@@ -1,6 +1,28 @@
 import { Card } from "@/components/ui/card";
+import { Code2, Database, Brain } from "lucide-react";
 
 const Experience = () => {
+  const projects = [
+    {
+      title: "MediScan AI",
+      description: "Healthcare AI platform for medical document analysis using RAG and LLMs",
+      tech: ["Python", "LangChain", "Vector DB", "FastAPI"],
+      icon: Brain,
+    },
+    {
+      title: "Real-time Analytics Pipeline",
+      description: "Scalable data processing system with Kafka and Redis for high-throughput analytics",
+      tech: ["Kafka", "Redis", "PostgreSQL", "Docker"],
+      icon: Database,
+    },
+    {
+      title: "Speaker Recognition System",
+      description: "Deep learning model for speaker identification with contrastive learning",
+      tech: ["PyTorch", "BERT", "CNN", "MLOps"],
+      icon: Code2,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
@@ -33,6 +55,50 @@ const Experience = () => {
                 </ul>
               </Card>
             </div>
+          </div>
+        </div>
+
+        {/* Projects Section */}
+        <div className="mt-20 md:mt-28">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center animate-fade-in-up">
+            Featured Projects
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <Card 
+                key={index}
+                className="group bg-white p-6 md:p-7 rounded-2xl border-2 border-gray-100 hover:border-[#1A1A1A]/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-500 animate-scale-in relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                <div className="relative z-10">
+                  <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] rounded-xl p-3 w-fit mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                    <project.icon className="w-6 h-6 text-white" />
+                  </div>
+                  
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1A1A1A] mb-3 group-hover:text-[#CD7F5E] transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-[#4A4A4A] text-sm md:text-base mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="skill-tag px-3 py-1.5 text-xs md:text-sm font-medium rounded-lg"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

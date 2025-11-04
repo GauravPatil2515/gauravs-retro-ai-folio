@@ -4,18 +4,18 @@ import { Trophy, Award } from "lucide-react";
 const Achievements = () => {
   const achievements = [
     {
+      title: "SIH Internal Hackathon - Participant",
+      description: "SIES Graduate School of Technology, Nerul",
+      date: "2023, 2024 & 2025",
+      icon: Trophy,
+      image: "/achievements/sih-certificate.png"
+    },
+    {
       title: "Second Runner-Up - OxygenIgnite Hackathon",
       description: "NIT Goa (Stellar India)",
       date: "2024",
       icon: Trophy,
       image: "/achievements/oxygen-ignite.jpg"
-    },
-    {
-      title: "Winner - Cognition",
-      description: "Department-Level Project Competition",
-      date: "2024",
-      icon: Trophy,
-      image: null
     },
     {
       title: "Runner-up - BNB Chain Bombay Hackathon",
@@ -37,6 +37,13 @@ const Achievements = () => {
       date: "2024",
       icon: Award,
       image: "/achievements/deep-blue.jpg"
+    },
+    {
+      title: "Winner - Cognition",
+      description: "Department-Level Project Competition",
+      date: "2024",
+      icon: Trophy,
+      image: null
     },
   ];
 

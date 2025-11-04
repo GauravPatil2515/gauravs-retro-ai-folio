@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import BackgroundPattern from "./BackgroundPattern";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -44,7 +45,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Background Pattern */}
+      <BackgroundPattern />
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 mt-6 md:mt-8">
@@ -122,12 +126,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-24">
+      <main className="pt-24 relative z-10">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 md:py-8 mt-16 md:mt-20 bg-gradient-to-b from-transparent to-gray-50">
+      <footer className="border-t border-border py-6 md:py-8 mt-16 md:mt-20 bg-gradient-to-b from-transparent to-gray-50 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-[#4A4A4A] text-xs md:text-sm">
           © 2025 Gaurav Patil - Designed with care, built with code
         </div>
