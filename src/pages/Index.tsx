@@ -23,10 +23,8 @@ const Index = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500);
-      
-      // Animate elements on scroll
+    // Function to check and animate visible elements
+    const animateVisibleElements = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
@@ -37,6 +35,14 @@ const Index = () => {
       });
     };
 
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 500);
+      animateVisibleElements();
+    };
+
+    // Run on initial load to animate elements already in viewport
+    animateVisibleElements();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
