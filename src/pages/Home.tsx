@@ -1,25 +1,64 @@
 const Home = () => {
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center">
-      {/* Tech keywords background pattern */}
+      {/* Dense Tech keywords background pattern - ML & Backend focused */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-        <div className="absolute inset-0 flex flex-wrap items-center justify-center opacity-[0.03] text-[#1A1A1A] font-bold leading-tight">
-          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-4 md:mx-8 my-2 md:my-4">AI/ML</span>
-          <span className="text-[6rem] sm:text-[7rem] md:text-[8rem] mx-3 md:mx-6 my-2 md:my-3">Python</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[10rem] mx-4 md:mx-8 my-2 md:my-4">Flask</span>
-          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-3 md:mx-6 my-2 md:my-3">TensorFlow</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-4 md:mx-8 my-2 md:my-4">React</span>
-          <span className="text-[8rem] sm:text-[10rem] md:text-[11rem] mx-3 md:mx-6 my-2 md:my-3">MongoDB</span>
-          <span className="text-[6rem] sm:text-[7rem] md:text-[8rem] mx-4 md:mx-8 my-2 md:my-4">Supabase</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[10rem] mx-3 md:mx-6 my-2 md:my-3">Docker</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-4 md:mx-8 my-2 md:my-4">PostgreSQL</span>
-          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-3 md:mx-6 my-2 md:my-3">FastAPI</span>
-          <span className="text-[8rem] sm:text-[10rem] md:text-[11rem] mx-4 md:mx-8 my-2 md:my-4">Transformers</span>
-          <span className="text-[6rem] sm:text-[7rem] md:text-[8rem] mx-3 md:mx-6 my-2 md:my-3">Cloud</span>
-          <span className="text-[7rem] sm:text-[9rem] md:text-[10rem] mx-4 md:mx-8 my-2 md:my-4">MySQL</span>
-          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-3 md:mx-6 my-2 md:my-3">LinkedIn</span>
-          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-4 md:mx-8 my-2 md:my-4">Console</span>
-          <span className="text-[9rem] sm:text-[11rem] md:text-[12rem] mx-3 md:mx-6 my-2 md:my-3">RAG</span>
+        <div className="absolute inset-0 flex flex-wrap items-center justify-center opacity-[0.025] text-[#1A1A1A] font-bold leading-none">
+          {/* Row 1 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">PyTorch</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">CNN</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">Flask</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">LSTM</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">FastAPI</span>
+          
+          {/* Row 2 */}
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-4 my-1">TensorFlow</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">RNN</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Docker</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">API</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">GAN</span>
+          
+          {/* Row 3 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-3 my-1">PostgreSQL</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">BERT</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">REST</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">XGBoost</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">SQL</span>
+          
+          {/* Row 4 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Scikit</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">RAG</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">YOLO</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-3 my-1">MongoDB</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Redis</span>
+          
+          {/* Row 5 */}
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Keras</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">NLP</span>
+          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Nginx</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">OpenCV</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">GPT</span>
+          
+          {/* Row 6 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Pandas</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">Vertex AI</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">ViT</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">NumPy</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Gunicorn</span>
+          
+          {/* Row 7 */}
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">SHAP</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">Transformers</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-3 my-1">K8s</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-4 my-1">LangChain</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">CUDA</span>
+          
+          {/* Row 8 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Celery</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">U-Net</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">gRPC</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">ResNet</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Airflow</span>
         </div>
       </div>
       
@@ -27,7 +66,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Name */}
           <h1 
-            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-on-scroll"
+            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-fade-in-up"
             style={{
               fontSize: 'clamp(2.5rem, 10vw, 6.5rem)',
               letterSpacing: '-0.03em',
@@ -40,11 +79,12 @@ const Home = () => {
           
           {/* Subtitle with mixed weights */}
           <p 
-            className="text-[#2A2A2A] mb-6 md:mb-8 animate-on-scroll animate-delay-1 px-4"
+            className="text-[#2A2A2A] mb-6 md:mb-8 animate-slide-in-right px-4"
             style={{
               fontSize: 'clamp(1.25rem, 4vw, 2.25rem)',
               lineHeight: '1.3',
-              fontWeight: 400
+              fontWeight: 400,
+              animationDelay: '0.2s'
             }}
           >
             I am a <span className="font-bold">Backend Developer & AI/ML Engineer</span>
@@ -52,19 +92,20 @@ const Home = () => {
           
           {/* Description */}
           <p 
-            className="text-[#6B7280] mb-10 md:mb-12 mx-auto animate-on-scroll animate-delay-2 px-4"
+            className="text-[#6B7280] mb-10 md:mb-12 mx-auto animate-fade-in px-4"
             style={{
               fontSize: 'clamp(1rem, 2vw, 1.125rem)',
               lineHeight: '1.8',
               maxWidth: '720px',
-              fontWeight: 400
+              fontWeight: 400,
+              animationDelay: '0.4s'
             }}
           >
             I create innovative AI applications and scalable backend solutions that drive real-world impact
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-5 animate-on-scroll animate-delay-3 px-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-5 animate-scale-in px-4" style={{ animationDelay: '0.6s' }}>
             <button
               onClick={() => window.location.href = '/services'}
               className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white px-8 md:px-10 py-4 rounded-xl text-sm md:text-base font-semibold hover:from-[#2A2A2A] hover:to-[#1A1A1A] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
