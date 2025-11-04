@@ -57,7 +57,7 @@ const Achievements = () => {
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl">
         {/* Achievements & Hackathons Section */}
-        <div className="animate-on-scroll">
+        <div className="animate-fade-in-up">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center md:text-left">
             Achievements & Hackathons
           </h2>
@@ -65,8 +65,8 @@ const Achievements = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
-                className="bg-white overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 rounded-2xl group"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-white overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 rounded-2xl group animate-scale-in"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Image Placeholder */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-[4/3] flex items-center justify-center overflow-hidden">
