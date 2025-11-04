@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import BackgroundPattern from "./BackgroundPattern";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -46,8 +45,65 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Background Pattern */}
-      <BackgroundPattern />
+      {/* Dense Tech Background Pattern for All Pages */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0">
+        <div className="absolute inset-0 flex flex-wrap items-center justify-center opacity-[0.025] text-[#1A1A1A] font-bold leading-none">
+          {/* Row 1 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">PyTorch</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">CNN</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">Flask</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">LSTM</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Docker</span>
+          
+          {/* Row 2 */}
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">TensorFlow</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">Redis</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">FastAPI</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">BERT</span>
+          
+          {/* Row 3 */}
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">PostgreSQL</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">RAG</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-3 my-1">MongoDB</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-4 my-1">Django</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">YOLO</span>
+          
+          {/* Row 4 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Kafka</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">LangChain</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">AWS</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">GPT</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">RabbitMQ</span>
+          
+          {/* Row 5 */}
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Keras</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">NLP</span>
+          <span className="text-[5rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">Nginx</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-4 my-1">OpenCV</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">GCP</span>
+          
+          {/* Row 6 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Pandas</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">Vertex AI</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-4 my-1">ViT</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">NumPy</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Gunicorn</span>
+          
+          {/* Row 7 */}
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-3 my-1">SHAP</span>
+          <span className="text-[8rem] sm:text-[10rem] md:text-[12rem] mx-2 md:mx-4 my-1">Transformers</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-3 my-1">K8s</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[9rem] mx-2 md:mx-4 my-1">LLM</span>
+          <span className="text-[4rem] sm:text-[6rem] md:text-[7rem] mx-2 md:mx-3 my-1">CUDA</span>
+          
+          {/* Row 8 */}
+          <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] mx-2 md:mx-4 my-1">Celery</span>
+          <span className="text-[7rem] sm:text-[9rem] md:text-[11rem] mx-2 md:mx-3 my-1">U-Net</span>
+          <span className="text-[4rem] sm:text-[5rem] md:text-[6rem] mx-2 md:mx-4 my-1">gRPC</span>
+          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] mx-2 md:mx-3 my-1">ResNet</span>
+          <span className="text-[5rem] sm:text-[7rem] md:text-[8rem] mx-2 md:mx-4 my-1">Airflow</span>
+        </div>
+      </div>
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
@@ -126,12 +182,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-24 relative z-10">
+      <main className="pt-24">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 md:py-8 mt-16 md:mt-20 bg-gradient-to-b from-transparent to-gray-50 relative z-10">
+      <footer className="border-t border-border py-6 md:py-8 mt-16 md:mt-20 bg-gradient-to-b from-transparent to-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-[#4A4A4A] text-xs md:text-sm">
           © 2025 Gaurav Patil - Designed with care, built with code
         </div>
