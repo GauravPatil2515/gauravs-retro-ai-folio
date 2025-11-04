@@ -134,10 +134,9 @@ html {
     transition: var(--transition-smooth);
   }
 
-  /* Scroll animation class */
-  .animate-on-scroll {
-    opacity: 0;
-    animation: fade-in-up 0.8s ease-out forwards;
+  /* Scroll animation class - no initial opacity, content visible by default */
+  .animate-on-scroll.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
   }
 
   .animate-delay-1 {
