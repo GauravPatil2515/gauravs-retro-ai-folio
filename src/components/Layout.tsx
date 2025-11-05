@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, Menu, X } from "lucide-react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -36,6 +37,23 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -130,8 +148,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </div>
               </Link>
 
-              {/* Nav Links */}
-              <div className="flex items-center gap-1 md:gap-2">
+              {/* Desktop Nav Links */}
+              <div className="hidden lg:flex items-center gap-1 md:gap-2">
                 <Link
                   to="/"
                   className={`px-3 sm:px-4 md:px-6 py-2 text-sm md:text-[15px] font-medium rounded-xl transition-all duration-500 relative overflow-hidden ${
@@ -160,8 +178,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
-                  <span className="hidden sm:inline">Achievements</span>
-                  <span className="sm:hidden">Awards</span>
+                  Achievements
                 </Link>
                 <Link
                   to="/services"
@@ -181,13 +198,85 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                       : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100 hover:shadow-md'
                   }`}
                 >
-                  <span className="hidden sm:inline">Experience</span>
-                  <span className="sm:hidden">Work</span>
+                  Experience
+                </Link>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-all duration-300"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6 text-[#1A1A1A]" />
+                ) : (
+                  <Menu className="w-6 h-6 text-[#1A1A1A]" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden fixed inset-x-0 top-[88px] md:top-[104px] px-4 sm:px-6 animate-fade-in">
+            <div className="glass-effect rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 overflow-hidden backdrop-blur-xl mx-auto max-w-5xl">
+              <div className="flex flex-col py-2">
+                <Link
+                  to="/"
+                  className={`px-6 py-4 text-base font-medium transition-all duration-300 ${
+                    isActive('/') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  className={`px-6 py-4 text-base font-medium transition-all duration-300 ${
+                    isActive('/about') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/achievements"
+                  className={`px-6 py-4 text-base font-medium transition-all duration-300 ${
+                    isActive('/achievements') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                >
+                  Achievements
+                </Link>
+                <Link
+                  to="/services"
+                  className={`px-6 py-4 text-base font-medium transition-all duration-300 ${
+                    isActive('/services') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/experience"
+                  className={`px-6 py-4 text-base font-medium transition-all duration-300 ${
+                    isActive('/experience') 
+                      ? 'text-white bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] font-semibold' 
+                      : 'text-[#5B5B5B] hover:text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                >
+                  Experience
                 </Link>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Main Content */}
