@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Brain, Eye, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Brain, Eye, MessageSquare, Github, ExternalLink } from "lucide-react";
 
 const Experience = () => {
   const projects = [
@@ -10,6 +11,8 @@ const Experience = () => {
       tech: ["Python", "FAISS", "Flask", "LangChain"],
       icon: MessageSquare,
       image: "/projects/neuro-rag.png",
+      github: "https://github.com/GauravPatil2515/NEURO-RAG.git",
+      demo: null,
     },
     {
       title: "Retinal Vessel Segmentation",
@@ -18,6 +21,8 @@ const Experience = () => {
       tech: ["PyTorch", "U-Net++", "FastAPI", "OpenCV"],
       icon: Eye,
       image: "/projects/retinal-vessel.png",
+      github: "https://github.com/GauravPatil2515/Retina-Unet.git",
+      demo: null,
     },
     {
       title: "DermAI",
@@ -26,6 +31,8 @@ const Experience = () => {
       tech: ["ViT", "TensorFlow", "Llama 3.3", "Flask"],
       icon: Brain,
       image: "/projects/dermai.png",
+      github: "https://github.com/GauravPatil2515/derm-ai.git",
+      demo: null,
     },
   ];
 
@@ -112,7 +119,7 @@ const Experience = () => {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
@@ -121,6 +128,39 @@ const Experience = () => {
                         {tech}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3 mt-auto">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button
+                        variant="outline"
+                        className="w-full border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 rounded-xl font-semibold"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
+                      >
+                        <Button
+                          className="w-full bg-[#CD7F5E] text-white hover:bg-[#B86F4E] transition-all duration-300 rounded-xl font-semibold"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 </div>
               </Card>

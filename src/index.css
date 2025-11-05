@@ -10,7 +10,30 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Retro Design System */
+    /* ============================================
+       COLOR PALETTE OPTIONS - Choose Your Theme
+       ============================================
+       
+       OPTION 1: RETRO WARM (Current)
+       --background: 48 19% 98%;        Off-white #FAF9F6
+       --foreground: 0 0% 10%;          Deep charcoal #1A1A1A
+       --accent: 19 50% 59%;            Burnt orange #CD7F5E
+       
+       OPTION 2: MODERN DARK
+       --background: 0 0% 7%;           Dark charcoal #121212
+       --foreground: 0 0% 98%;          Off-white #FAFAFA
+       --accent: 217 91% 60%;           Blue #3B82F6
+       
+       OPTION 3: MINIMAL LIGHT
+       --background: 0 0% 100%;         Pure white #FFFFFF
+       --foreground: 0 0% 15%;          Dark gray #262626
+       --accent: 142 71% 45%;           Green #22C55E
+       
+       To switch themes, copy the values from your chosen option
+       and paste them below in the "Active Theme" section.
+       ============================================ */
+    
+    /* Active Theme */
     --background: 48 19% 98%;        /* Off-white #FAF9F6 */
     --foreground: 0 0% 10%;          /* Deep charcoal #1A1A1A */
 
@@ -29,7 +52,7 @@ All colors MUST be HSL.
     --muted: 45 11% 92%;             /* Very light gray #E8E6E3 */
     --muted-foreground: 0 0% 29%;    /* Medium gray #4A4A4A */
 
-    --accent: 19 50% 59%;            /* Burnt orange #CD7F5E */
+    --accent: 19 50% 59%;            /* Burnt orange #CD7F5E - Change this for different accent color */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
