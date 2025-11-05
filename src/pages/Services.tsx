@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6 text-center animate-fade-in-up">
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6 text-center animate-fade-in-up hover:text-[#CD7F5E] transition-colors duration-300 cursor-default">
           What I Do
         </h1>
         <p className="text-center text-base md:text-lg text-[#4A4A4A] mb-12 md:mb-16 max-w-3xl mx-auto animate-slide-in-right px-4" style={{ animationDelay: '0.2s' }}>
@@ -45,8 +45,9 @@ const Services = () => {
 
         {/* Contact CTA Section */}
         <div className="max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-          <Card className="bg-gradient-to-br from-gray-50 to-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500">
-            <div className="text-center">
+          <Card className="bg-gradient-to-br from-gray-50 to-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div className="text-center relative z-10">
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-3 md:mb-4">
                 Let's Work Together
               </h2>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronUp, ChevronDown, Menu, X } from "lucide-react";
+import Chatbot from "./Chatbot";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -280,7 +281,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-24">
+      <main className={location.pathname === '/' ? '' : 'pt-24'}>
         {children}
       </main>
 
@@ -295,13 +296,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 rounded-2xl bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#2A2A2A] hover:via-[#1A1A1A] hover:to-[#2A2A2A] transition-all duration-500 hover:scale-110 shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group relative overflow-hidden"
+          className="fixed bottom-24 right-6 md:bottom-28 md:right-8 rounded-2xl bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#2A2A2A] hover:via-[#1A1A1A] hover:to-[#2A2A2A] transition-all duration-500 hover:scale-110 shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-40 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group relative overflow-hidden"
           aria-label="Back to top"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           <ChevronUp className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:animate-bounce relative z-10" />
         </button>
       )}
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 };

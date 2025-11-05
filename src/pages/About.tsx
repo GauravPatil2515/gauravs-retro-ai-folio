@@ -8,7 +8,7 @@ const About = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
         {/* Page Header */}
         <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6 hover:text-[#CD7F5E] transition-colors duration-300 cursor-default">
             About Me
           </h1>
           <p className="text-lg sm:text-xl text-[#4A4A4A] max-w-3xl mx-auto px-4">
@@ -41,8 +41,9 @@ const About = () => {
 
         {/* Mission Statement */}
         <div className="max-w-3xl mx-auto animate-scale-in px-4" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 md:p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
-            <p className="text-lg md:text-xl text-[#4A4A4A] leading-relaxed text-center">
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 md:p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <p className="text-lg md:text-xl text-[#4A4A4A] leading-relaxed text-center relative z-10">
               Passionate about building <span className="font-bold text-[#1A1A1A]">ethical, accessible healthcare AI</span> solutions that make a real impact in people's lives
             </p>
           </div>

@@ -6,7 +6,7 @@ const Achievements = () => {
     {
       title: "SIH Internal Hackathon - Participant",
       description: "SIES Graduate School of Technology, Nerul",
-      date: "2023, 2024 & 2025",
+      date: "2024 & 2025",
       icon: Trophy,
       image: "/achievements/sih-certificate.png"
     },
@@ -65,7 +65,7 @@ const Achievements = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl">
         {/* Achievements & Hackathons Section */}
         <div className="animate-fade-in-up">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center md:text-left">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center md:text-left hover:text-[#CD7F5E] transition-colors duration-300 cursor-default">
             Achievements & Hackathons
           </h2>
           <div className="grid gap-6 md:gap-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
@@ -102,7 +102,7 @@ const Achievements = () => {
                     <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2 md:p-2.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <achievement.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
                     </div>
-                    <h3 className="font-heading text-base md:text-lg font-bold text-[#1A1A1A] leading-tight">
+                    <h3 className="font-heading text-base md:text-lg font-bold text-[#1A1A1A] leading-tight group-hover:text-[#CD7F5E] transition-colors duration-300">
                       {achievement.title}
                     </h3>
                   </div>

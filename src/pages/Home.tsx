@@ -1,8 +1,8 @@
 const Home = () => {
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center">
+    <section className="relative overflow-hidden h-screen flex items-center justify-center">
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pt-24 md:pt-32 pb-24 md:pb-32 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 py-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Name */}
           <h1 

@@ -9,7 +9,7 @@ const Experience = () => {
       description: "Mental health diagnostic system using retrieval-augmented generation over ICD-10. Vectorized 14,000+ lines into 1,438 chunks with FAISS achieving sub-30ms latency. Built for clinical accuracy with inline citations and evidence panels.",
       tech: ["Python", "FAISS", "Flask", "LangChain"],
       icon: MessageSquare,
-      image: null,
+      image: "/projects/neuro-rag.png",
     },
     {
       title: "Retinal Vessel Segmentation",
