@@ -53,6 +53,83 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Handle Esc key to close chat
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [isOpen]);
+
+  // Clear chat history
+  const clearChat = () => {
+    setMessages([{
+      text: "Hi! I'm Gaurav's AI assistant. I can help you explore his projects, skills, and experience. What would you like to know?",
+      isBot: true,
+      actions: [
+        {
+          label: "View Projects",
+          icon: <Briefcase className="w-4 h-4" />,
+          action: () => navigate("/experience"),
+          variant: 'primary'
+        },
+        {
+          label: "Contact Gaurav",
+          icon: <Mail className="w-4 h-4" />,
+          action: () => window.location.href = "mailto:gauravpatil2516@gmail.com",
+          variant: 'secondary'
+        }
+      ]
+    }]);
+  };
+
+  // Generate follow-up questions based on conversation
+  const getSuggestedQuestions = (userMsg: string, botResponse: string): string[] => {
+    const msg = (userMsg + ' ' + botResponse).toLowerCase();
+    
+    if (msg.match(/\b(project|neuro-rag|dermai|retinal)\b/)) {
+      return [
+        "What technologies did you use?",
+        "Tell me about other projects",
+        "How can I see the code?"
+      ];
+    }
+    
+    if (msg.match(/\b(skill|technology|tech stack)\b/)) {
+      return [
+        "What's your strongest skill?",
+        "Do you know cloud platforms?",
+        "Tell me about your experience"
+      ];
+    }
+    
+    if (msg.match(/\b(achievement|hackathon|award)\b/)) {
+      return [
+        "What was your biggest win?",
+        "Tell me about your projects",
+        "Are you available for hire?"
+      ];
+    }
+    
+    if (msg.match(/\b(service|offer|help)\b/)) {
+      return [
+        "What's your pricing?",
+        "Can you build AI solutions?",
+        "How do I contact you?"
+      ];
+    }
+    
+    return [
+      "Tell me about your background",
+      "What are your recent projects?",
+      "How can we collaborate?"
+    ];
+  };
+
   // Clean markdown formatting and format text properly
   const cleanText = (text: string): string => {
     return text
@@ -331,6 +408,9 @@ RESPONSE STYLE:
       
       // Detect intent and generate action buttons
       const actions = detectIntent(userMessage, botResponse);
+      
+      // Generate suggested questions
+      const suggestedQuestions = getSuggestedQuestions(userMessage, botResponse);
 
       setIsTyping(false);
       
@@ -344,6 +424,28 @@ RESPONSE STYLE:
             actions: actions.length > 0 ? actions : undefined,
           },
         ]);
+        
+        // Add suggested questions as a separate message after a short delay
+        if (suggestedQuestions.length > 0) {
+          setTimeout(() => {
+            setMessages((prev) => [
+              ...prev,
+              {
+                text: "You might also want to ask:",
+                isBot: true,
+                actions: suggestedQuestions.slice(0, 2).map(q => ({
+                  label: q,
+                  icon: <></>,
+                  action: () => {
+                    setMessage(q);
+                    setTimeout(() => handleSendMessage(), 100);
+                  },
+                  variant: 'secondary' as const
+                }))
+              },
+            ]);
+          }, 500);
+        }
       }, 300);
     } catch (error) {
       console.error("Error calling Groq API:", error);
@@ -390,25 +492,36 @@ RESPONSE STYLE:
       {/* Chat Window */}
       {isOpen && (
         <div 
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100"
+          className="fixed bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 w-full h-[calc(100vh-60px)] md:w-[90vw] md:max-w-md md:h-[500px] bg-white md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-t-2 md:border-2 border-gray-100 md:rounded-t-3xl rounded-t-2xl"
           style={{
             animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards'
           }}
         >
           {/* Chat Header */}
-          <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-4 md:p-5 flex items-center justify-between rounded-t-3xl shadow-lg">
-            <div className="flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-700" style={{ animationDelay: '200ms' }}>
+          <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-3 md:p-4 flex items-center justify-between rounded-t-3xl shadow-lg">
+            <div className="flex items-center gap-2 md:gap-3">
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30 transition-all duration-300 hover:scale-110 group"
+                className="w-9 h-9 md:w-10 md:h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30 transition-all duration-300 hover:scale-110 group"
                 aria-label="Close chat"
               >
-                <ChevronDown className="w-5 h-5 text-white group-hover:translate-y-0.5 transition-transform duration-300" />
+                <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:translate-y-0.5 transition-transform duration-300" />
               </button>
               <div>
-                <h3 className="font-heading text-lg font-bold text-white">Chat with AI</h3>
+                <h3 className="font-heading text-base md:text-lg font-bold text-white">Chat with AI</h3>
               </div>
             </div>
+            
+            {/* Clear Chat Button */}
+            {messages.length > 1 && (
+              <button
+                onClick={clearChat}
+                className="px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105 text-white/90 hover:text-white"
+                aria-label="Clear chat"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
           {/* Chat Messages */}
@@ -455,11 +568,12 @@ RESPONSE STYLE:
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-                <div className="bg-white text-[#2A2A2A] border border-gray-200 rounded-2xl rounded-tl-sm p-4 shadow-sm">
-                  <div className="flex gap-1.5">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                <div className="bg-white text-[#2A2A2A] border border-gray-200 rounded-2xl rounded-tl-sm p-3 md:p-4 shadow-sm max-w-[85%]">
+                  {/* Loading Skeleton */}
+                  <div className="space-y-2">
+                    <div className="h-3 bg-gray-200 rounded-full animate-pulse w-32"></div>
+                    <div className="h-3 bg-gray-200 rounded-full animate-pulse w-24"></div>
+                    <div className="h-3 bg-gray-200 rounded-full animate-pulse w-28"></div>
                   </div>
                 </div>
               </div>
@@ -468,10 +582,10 @@ RESPONSE STYLE:
           </div>
 
           {/* Chat Input */}
-          <div className="p-4 border-t border-gray-200 bg-white rounded-b-3xl">
+          <div className="p-3 md:p-4 border-t border-gray-200 bg-white rounded-b-2xl md:rounded-b-3xl">
             {/* Quick Replies */}
             {messages.length === 1 && !isLoading && (
-              <div className="mb-3 flex flex-wrap gap-2">
+              <div className="mb-2 md:mb-3 flex flex-wrap gap-1.5 md:gap-2">
                 {quickReplies.map((reply, index) => (
                   <button
                     key={index}
@@ -479,7 +593,7 @@ RESPONSE STYLE:
                       setMessage(reply);
                       setTimeout(() => handleSendMessage(), 100);
                     }}
-                    className="px-3 py-1.5 text-xs md:text-sm bg-gray-100 hover:bg-gray-200 text-[#2A2A2A] rounded-full transition-all duration-300 hover:scale-105 border border-gray-300"
+                    className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm bg-gray-100 hover:bg-gray-200 text-[#2A2A2A] rounded-full transition-all duration-300 hover:scale-105 border border-gray-300"
                   >
                     {reply}
                   </button>
@@ -495,7 +609,7 @@ RESPONSE STYLE:
                 onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSendMessage()}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-50 focus:bg-white"
+                className="flex-1 px-3 md:px-4 py-2 md:py-3 rounded-full border-2 border-gray-200 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-50 focus:bg-white"
               />
               <button
                 onClick={handleSendMessage}
