@@ -371,12 +371,15 @@ IMPORTANT FORMATTING RULES:
 - Answer in clear, well-structured paragraphs
 - DO NOT use markdown symbols
 - Separate different ideas with double line breaks
-- Keep responses concise (2-3 short paragraphs max)
+- Keep responses concise (2-4 short paragraphs max)
 - Use simple language, avoid technical jargon unless asked
 - When listing items, use simple numbered format on separate lines
+- For technical details, provide specific metrics and technologies
 
 RESPONSE STYLE:
 - Be friendly, professional, and conversational
+- Give detailed, informative answers with specific examples
+- Mention technologies, metrics, and achievements when relevant
 - Encourage users to explore relevant sections (projects, services, achievements, about)
 - Mention email for collaborations: gauravpatil2516@gmail.com
 - If asked about availability: open to collaborations, internships, AI projects (especially healthcare)
@@ -436,9 +439,161 @@ RESPONSE STYLE:
                 actions: suggestedQuestions.slice(0, 2).map(q => ({
                   label: q,
                   icon: <></>,
-                  action: () => {
-                    setMessage(q);
-                    setTimeout(() => handleSendMessage(), 100);
+                  action: async () => {
+                    // Set the message and trigger send
+                    const questionToSend = q;
+                    setMessages((prevMsgs) => [...prevMsgs, { text: questionToSend, isBot: false }]);
+                    setIsLoading(true);
+                    setIsTyping(true);
+                    
+                    try {
+                      const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                          "Authorization": `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+                        },
+                        body: JSON.stringify({
+                          model: "llama-3.1-8b-instant",
+                          messages: [
+                            {
+                              role: "system",
+                              content: `You are a helpful AI assistant for Gaurav Patil's portfolio website. You have comprehensive knowledge about Gaurav's background, skills, and projects.
+
+ABOUT GAURAV:
+- Backend Developer & AI/ML Engineer
+- B.E. AI/ML at SIES GST, CGPA 8.57
+- Location: Thane, Maharashtra, India
+- Email: gauravpatil2516@gmail.com
+- Passionate about ethical, accessible healthcare AI solutions
+
+EXPERIENCE:
+1. AI Intern at Pioneer Machines & Automation Pvt. Ltd (Jun 2025 - Aug 2025)
+   - Vertex AI + PubMed medical document analysis
+   - Built retrieval workflows improving clinical data throughput
+   - Data scraping, chunking, image matching, ML pipelines
+
+2. Technical Head at IEEE SIES GST (2024 - Present)
+   - Led AI/ML workshops at Technopedia 2024 for 50+ attendees
+   - Delivered CNN workshop on Indian Sign Language recognition
+
+3. ML & DS Coordinator at Google Developers Group (2024 - 2025)
+   - Mentored 100+ students on model design, evaluation, and deployment
+
+KEY PROJECTS:
+1. Neuro-RAG (Production / Healthcare AI)
+   - Mental health diagnostic system using RAG over ICD-10
+   - Vectorized 14,000+ lines into 1,438 chunks with FAISS
+   - Sub-30ms latency with clinical accuracy
+   - Tech: Python, FAISS, Flask, LangChain
+
+2. Retinal Vessel Segmentation (Computer Vision / Medical Imaging)
+   - U-Net++ model achieving 83.7% Dice score on DRIVE dataset
+   - Real-time inference dashboard under 1 second
+   - Tech: PyTorch, U-Net++, FastAPI, OpenCV
+
+3. DermAI (Deep Learning / Medical Diagnosis)
+   - Vision Transformer hitting 99.1% accuracy (Cohen's Kappa 0.975)
+   - Skin disease classification with Llama 3.3 for medical Q&A
+   - Grad-CAM explainability
+   - Tech: ViT, TensorFlow, Llama 3.3, Flask
+
+ACHIEVEMENTS:
+- SIH Internal Hackathon - Participant (2024 & 2025)
+- Second Runner-Up - OxygenIgnite Hackathon, NIT Goa (2025)
+- Runner-up - BNB Chain Bombay Hackathon (2025)
+- Top 3 (Sustainability) - ByteCamp Hackathon (2025)
+- Semi-finalist - Deep Blue Project Season 10, Mastek (2025)
+- Winner - Cognition, Department-Level Project Competition (2025)
+
+TECHNICAL SKILLS:
+Programming: Python, C, SQL
+ML/DL: PyTorch, TensorFlow, Scikit-learn, XGBoost, LangChain, Hugging Face, SHAP
+Computer Vision & NLP: U-Net++, OpenCV, ViT, Detectron2, Grad-CAM, Mask R-CNN, SentenceTransformers
+Backend & Deployment: Flask, FastAPI, Docker, Git, Streamlit, PostgreSQL, MongoDB, Redis
+
+SERVICES OFFERED:
+1. AI & Machine Learning Development
+2. Backend Development with Python
+3. Healthcare AI Solutions
+4. Computer Vision Applications
+5. NLP & RAG Systems
+
+IMPORTANT FORMATTING RULES:
+- Answer in clear, well-structured paragraphs
+- DO NOT use markdown symbols
+- Separate different ideas with double line breaks
+- Keep responses concise (2-4 short paragraphs max)
+- Use simple language, avoid technical jargon unless asked
+- When listing items, use simple numbered format on separate lines
+- For technical details, provide specific metrics and technologies
+
+RESPONSE STYLE:
+- Be friendly, professional, and conversational
+- Give detailed, informative answers with specific examples
+- Mention technologies, metrics, and achievements when relevant
+- Encourage users to explore relevant sections (projects, services, achievements, about)
+- Mention email for collaborations: gauravpatil2516@gmail.com
+- If asked about availability: open to collaborations, internships, AI projects (especially healthcare)
+- Keep answers focused and to the point`
+                            },
+                            ...messages.filter(m => !m.text.includes("You might also want to ask")).map(msg => ({
+                              role: msg.isBot ? "assistant" : "user",
+                              content: msg.text
+                            })),
+                            {
+                              role: "user",
+                              content: questionToSend
+                            }
+                          ],
+                          temperature: 0.7,
+                          max_tokens: 500,
+                        }),
+                      });
+
+                      if (!response.ok) throw new Error("Failed to get response from Groq");
+
+                      const data = await response.json();
+                      let botResp = data.choices[0]?.message?.content || "I'm sorry, I couldn't process that.";
+                      botResp = cleanText(botResp);
+                      const newActions = detectIntent(questionToSend, botResp);
+                      const newSuggestions = getSuggestedQuestions(questionToSend, botResp);
+
+                      setIsTyping(false);
+                      setTimeout(() => {
+                        setMessages((prevMsgs) => [
+                          ...prevMsgs,
+                          {
+                            text: botResp,
+                            isBot: true,
+                            actions: newActions.length > 0 ? newActions : undefined,
+                          },
+                        ]);
+                        
+                        if (newSuggestions.length > 0) {
+                          setTimeout(() => {
+                            setMessages((prevMsgs) => [
+                              ...prevMsgs,
+                              {
+                                text: "You might also want to ask:",
+                                isBot: true,
+                                actions: newSuggestions.slice(0, 2).map(nq => ({
+                                  label: nq,
+                                  icon: <></>,
+                                  action: () => {},
+                                  variant: 'secondary' as const
+                                }))
+                              },
+                            ]);
+                          }, 500);
+                        }
+                      }, 300);
+                    } catch (error) {
+                      console.error("Error:", error);
+                      setIsTyping(false);
+                    } finally {
+                      setIsLoading(false);
+                    }
                   },
                   variant: 'secondary' as const
                 }))
