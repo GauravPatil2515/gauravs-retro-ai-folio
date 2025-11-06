@@ -557,7 +557,6 @@ RESPONSE STYLE:
                       let botResp = data.choices[0]?.message?.content || "I'm sorry, I couldn't process that.";
                       botResp = cleanText(botResp);
                       const newActions = detectIntent(questionToSend, botResp);
-                      const newSuggestions = getSuggestedQuestions(questionToSend, botResp);
 
                       setIsTyping(false);
                       setTimeout(() => {
@@ -569,24 +568,6 @@ RESPONSE STYLE:
                             actions: newActions.length > 0 ? newActions : undefined,
                           },
                         ]);
-                        
-                        if (newSuggestions.length > 0) {
-                          setTimeout(() => {
-                            setMessages((prevMsgs) => [
-                              ...prevMsgs,
-                              {
-                                text: "You might also want to ask:",
-                                isBot: true,
-                                actions: newSuggestions.slice(0, 2).map(nq => ({
-                                  label: nq,
-                                  icon: <></>,
-                                  action: () => {},
-                                  variant: 'secondary' as const
-                                }))
-                              },
-                            ]);
-                          }, 500);
-                        }
                       }, 300);
                     } catch (error) {
                       console.error("Error:", error);
