@@ -380,7 +380,7 @@ RESPONSE STYLE:
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_50px_rgba(0,0,0,0.4)] transition-all duration-500 hover:scale-110 z-50 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#CD7F5E] hover:via-[#B86F4E] hover:to-[#CD7F5E] text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_50px_rgba(205,127,94,0.4)] transition-all duration-500 hover:scale-110 z-50 flex items-center justify-center group animate-in fade-in zoom-in-95 duration-700"
           aria-label="Open chat"
         >
           <MessageCircle className="w-6 h-6 md:w-7 md:h-7 group-hover:rotate-12 transition-transform duration-300" />
@@ -389,24 +389,23 @@ RESPONSE STYLE:
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100 transition-all duration-700 ease-out animate-in slide-in-from-bottom-12 slide-in-from-right-12 fade-in zoom-in-95">
+        <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100 animate-in slide-in-from-bottom-8 slide-in-from-right-8 fade-in zoom-in-95 duration-500">
           {/* Chat Header */}
           <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-4 md:p-5 flex items-center justify-between rounded-t-3xl shadow-lg">
             <div className="flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-700" style={{ animationDelay: '200ms' }}>
               <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30">
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="font-heading text-lg font-bold">Chat with AI</h3>
-                <p className="text-xs text-white/70">Powered by Groq</p>
+                <h3 className="font-heading text-lg font-bold text-white">Chat with AI</h3>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out hover:rotate-90"
+              className="w-8 h-8 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out hover:rotate-90 hover:scale-110"
               aria-label="Close chat"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-white" />
             </button>
           </div>
 
