@@ -53,14 +53,49 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Clean markdown formatting from bot responses
+  // Clean markdown formatting and format text properly
   const cleanText = (text: string): string => {
     return text
       .replace(/\*\*/g, '') // Remove bold
       .replace(/\*/g, '')   // Remove italic
       .replace(/#{1,6}\s/g, '') // Remove headers
       .replace(/`/g, '')    // Remove code blocks
+      .replace(/\n{3,}/g, '\n\n') // Normalize multiple line breaks
       .trim();
+  };
+
+  // Format text into paragraphs for better readability
+  const formatText = (text: string): JSX.Element => {
+    const paragraphs = text.split('\n\n').filter(p => p.trim());
+    
+    return (
+      <>
+        {paragraphs.map((para, idx) => {
+          // Check if it's a list item
+          const lines = para.split('\n').filter(l => l.trim());
+          
+          if (lines.length > 1 && lines.every(l => l.match(/^[\-•]/) || l.match(/^\d+\./))) {
+            // It's a list
+            return (
+              <ul key={idx} className="space-y-1 ml-4 list-disc">
+                {lines.map((line, i) => (
+                  <li key={i} className="text-sm md:text-base">
+                    {line.replace(/^[\-•]\s*/, '').replace(/^\d+\.\s*/, '')}
+                  </li>
+                ))}
+              </ul>
+            );
+          } else {
+            // It's a paragraph
+            return (
+              <p key={idx} className="mb-2 last:mb-0">
+                {para}
+              </p>
+            );
+          }
+        })}
+      </>
+    );
   };
 
   // Detect intent and generate action buttons
@@ -68,23 +103,28 @@ const Chatbot = () => {
     const msg = (userMsg + ' ' + botResponse).toLowerCase();
     const actions: ActionButton[] = [];
 
-    // Check for project-related keywords
-    if (msg.match(/\b(project|work|portfolio|neuro-rag|dermai|retinal|github)\b/)) {
-      actions.push({
-        label: "View Projects",
-        icon: <Code className="w-4 h-4" />,
-        action: () => {
-          navigate("/experience");
-          setIsOpen(false);
-        },
-        variant: 'primary'
-      });
-    }
+    // Priority 1: Contact/Hire (highest priority)
+    const hasContactIntent = msg.match(/\b(contact|hire|email|collaborate|reach|get in touch|availability|available|work with|talk to)\b/);
+    
+    // Priority 2: About/Background
+    const hasAboutIntent = msg.match(/\b(about|who|background|education|story|journey|tell me)\b/);
+    
+    // Priority 3: Projects/Experience
+    const hasProjectIntent = msg.match(/\b(project|work|portfolio|built|created|neuro-rag|dermai|retinal|github|experience)\b/);
+    
+    // Priority 4: Achievements
+    const hasAchievementIntent = msg.match(/\b(achievement|award|hackathon|win|won|competition|recognition)\b/);
+    
+    // Priority 5: Services
+    const hasServiceIntent = msg.match(/\b(service|offer|do|help|build|develop|capabilities|expertise|provide)\b/);
+    
+    // Priority 6: Skills
+    const hasSkillIntent = msg.match(/\b(skill|technology|tech stack|language|framework|tool|know)\b/);
 
-    // Check for contact/hire keywords
-    if (msg.match(/\b(contact|hire|email|collaborate|reach|availability|available)\b/)) {
+    // Generate buttons based on priority
+    if (hasContactIntent) {
       actions.push({
-        label: "Email Gaurav",
+        label: "Email Me",
         icon: <Mail className="w-4 h-4" />,
         action: () => window.location.href = "mailto:gauravpatil2516@gmail.com",
         variant: 'primary'
@@ -98,28 +138,68 @@ const Chatbot = () => {
         },
         variant: 'secondary'
       });
-    }
-
-    // Check for skills/services keywords
-    if (msg.match(/\b(skill|service|offer|can you|capabilities|expertise)\b/)) {
+    } else if (hasAboutIntent) {
       actions.push({
-        label: "View Services",
+        label: "About Me",
+        icon: <ExternalLink className="w-4 h-4" />,
+        action: () => {
+          navigate("/about");
+          setIsOpen(false);
+        },
+        variant: 'primary'
+      });
+    } else if (hasProjectIntent) {
+      actions.push({
+        label: "View Projects",
+        icon: <Code className="w-4 h-4" />,
+        action: () => {
+          navigate("/experience");
+          setIsOpen(false);
+        },
+        variant: 'primary'
+      });
+    } else if (hasAchievementIntent) {
+      actions.push({
+        label: "See Achievements",
+        icon: <ExternalLink className="w-4 h-4" />,
+        action: () => {
+          navigate("/achievements");
+          setIsOpen(false);
+        },
+        variant: 'primary'
+      });
+    } else if (hasServiceIntent) {
+      actions.push({
+        label: "My Services",
         icon: <Briefcase className="w-4 h-4" />,
         action: () => {
           navigate("/services");
           setIsOpen(false);
         },
-        variant: 'secondary'
+        variant: 'primary'
       });
     }
 
-    // Check for resume/CV keywords
-    if (msg.match(/\b(resume|cv|download|experience|education)\b/)) {
+    // Always offer resume download if mentioned
+    if (msg.match(/\b(resume|cv|download)\b/) && actions.length < 2) {
       actions.push({
         label: "Download Resume",
         icon: <FileText className="w-4 h-4" />,
         action: () => window.open('/resume/Gaurav_Patil_Resume.pdf', '_blank'),
         variant: 'secondary'
+      });
+    }
+
+    // If no specific intent, offer home page
+    if (actions.length === 0) {
+      actions.push({
+        label: "Explore Portfolio",
+        icon: <ExternalLink className="w-4 h-4" />,
+        action: () => {
+          navigate("/");
+          setIsOpen(false);
+        },
+        variant: 'primary'
       });
     }
 
@@ -210,7 +290,20 @@ SERVICES OFFERED:
 4. Computer Vision Applications
 5. NLP & RAG Systems
 
-Answer questions professionally and concisely in plain text. DO NOT use markdown formatting like asterisks, bold, or bullets. Write in clear, conversational paragraphs. Encourage users to contact Gaurav at gauravpatil2516@gmail.com for collaborations. If asked about availability, mention he's open to collaborations, internships, and interesting AI projects, especially in healthcare tech and research. Keep responses under 100 words when possible.`
+IMPORTANT FORMATTING RULES:
+- Answer in clear, well-structured paragraphs
+- DO NOT use markdown symbols
+- Separate different ideas with double line breaks
+- Keep responses concise (2-3 short paragraphs max)
+- Use simple language, avoid technical jargon unless asked
+- When listing items, use simple numbered format on separate lines
+
+RESPONSE STYLE:
+- Be friendly, professional, and conversational
+- Encourage users to explore relevant sections (projects, services, achievements, about)
+- Mention email for collaborations: gauravpatil2516@gmail.com
+- If asked about availability: open to collaborations, internships, AI projects (especially healthcare)
+- Keep answers focused and to the point`
             },
             ...messages.map(msg => ({
               role: msg.isBot ? "assistant" : "user",
@@ -276,9 +369,9 @@ Answer questions professionally and concisely in plain text. DO NOT use markdown
   };
 
   const quickReplies = [
-    "Tell me about your projects",
-    "What are your skills?",
-    "How can I contact you?",
+    "Tell me about yourself",
+    "What projects have you built?",
+    "What services do you offer?",
   ];
 
   return (
@@ -332,7 +425,7 @@ Answer questions professionally and concisely in plain text. DO NOT use markdown
                         : "bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white rounded-tr-sm"
                     } text-sm md:text-base leading-relaxed shadow-sm`}
                   >
-                    {msg.text}
+                    {msg.isBot ? formatText(msg.text) : msg.text}
                   </div>
                   
                   {/* Action Buttons */}
