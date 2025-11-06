@@ -1,17 +1,130 @@
-import { useState } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useRef, useEffect } from "react";
+import { MessageCircle, X, Send, Loader2, Mail, Briefcase, Code, FileText, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+interface Message {
+  text: string;
+  isBot: boolean;
+  actions?: ActionButton[];
+}
+
+interface ActionButton {
+  label: string;
+  icon: React.ReactNode;
+  action: () => void;
+  variant?: 'primary' | 'secondary';
+}
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState([
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  
+  const [messages, setMessages] = useState<Message[]>([
     {
-      text: "Hello, welcome to Gaurav's portfolio. What brings you here today? Are you exploring AI/ML solutions or web development services for your project?",
+      text: "Hi! I'm Gaurav's AI assistant. I can help you explore his projects, skills, and experience. What would you like to know?",
       isBot: true,
+      actions: [
+        {
+          label: "View Projects",
+          icon: <Briefcase className="w-4 h-4" />,
+          action: () => navigate("/experience"),
+          variant: 'primary'
+        },
+        {
+          label: "Contact Gaurav",
+          icon: <Mail className="w-4 h-4" />,
+          action: () => window.location.href = "mailto:gauravpatil2516@gmail.com",
+          variant: 'secondary'
+        }
+      ]
     },
   ]);
+
+  // Auto scroll to bottom
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  // Clean markdown formatting from bot responses
+  const cleanText = (text: string): string => {
+    return text
+      .replace(/\*\*/g, '') // Remove bold
+      .replace(/\*/g, '')   // Remove italic
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/`/g, '')    // Remove code blocks
+      .trim();
+  };
+
+  // Detect intent and generate action buttons
+  const detectIntent = (userMsg: string, botResponse: string): ActionButton[] => {
+    const msg = (userMsg + ' ' + botResponse).toLowerCase();
+    const actions: ActionButton[] = [];
+
+    // Check for project-related keywords
+    if (msg.match(/\b(project|work|portfolio|neuro-rag|dermai|retinal|github)\b/)) {
+      actions.push({
+        label: "View Projects",
+        icon: <Code className="w-4 h-4" />,
+        action: () => {
+          navigate("/experience");
+          setIsOpen(false);
+        },
+        variant: 'primary'
+      });
+    }
+
+    // Check for contact/hire keywords
+    if (msg.match(/\b(contact|hire|email|collaborate|reach|availability|available)\b/)) {
+      actions.push({
+        label: "Email Gaurav",
+        icon: <Mail className="w-4 h-4" />,
+        action: () => window.location.href = "mailto:gauravpatil2516@gmail.com",
+        variant: 'primary'
+      });
+      actions.push({
+        label: "Contact Page",
+        icon: <ExternalLink className="w-4 h-4" />,
+        action: () => {
+          navigate("/contact");
+          setIsOpen(false);
+        },
+        variant: 'secondary'
+      });
+    }
+
+    // Check for skills/services keywords
+    if (msg.match(/\b(skill|service|offer|can you|capabilities|expertise)\b/)) {
+      actions.push({
+        label: "View Services",
+        icon: <Briefcase className="w-4 h-4" />,
+        action: () => {
+          navigate("/services");
+          setIsOpen(false);
+        },
+        variant: 'secondary'
+      });
+    }
+
+    // Check for resume/CV keywords
+    if (msg.match(/\b(resume|cv|download|experience|education)\b/)) {
+      actions.push({
+        label: "Download Resume",
+        icon: <FileText className="w-4 h-4" />,
+        action: () => window.open('/resume/Gaurav_Patil_Resume.pdf', '_blank'),
+        variant: 'secondary'
+      });
+    }
+
+    return actions.slice(0, 2); // Limit to 2 buttons
+  };
 
   const handleSendMessage = async () => {
     if (!message.trim() || isLoading) return;
@@ -21,6 +134,7 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, { text: userMessage, isBot: false }]);
     setMessage("");
     setIsLoading(true);
+    setIsTyping(true);
 
     try {
       // Call Groq API
@@ -96,7 +210,7 @@ SERVICES OFFERED:
 4. Computer Vision Applications
 5. NLP & RAG Systems
 
-Answer questions professionally and concisely. Encourage users to contact Gaurav at gauravpatil2516@gmail.com for collaborations. If asked about availability, mention he's open to collaborations, internships, and interesting AI projects, especially in healthcare tech and research.`
+Answer questions professionally and concisely in plain text. DO NOT use markdown formatting like asterisks, bold, or bullets. Write in clear, conversational paragraphs. Encourage users to contact Gaurav at gauravpatil2516@gmail.com for collaborations. If asked about availability, mention he's open to collaborations, internships, and interesting AI projects, especially in healthcare tech and research. Keep responses under 100 words when possible.`
             },
             ...messages.map(msg => ({
               role: msg.isBot ? "assistant" : "user",
@@ -117,28 +231,55 @@ Answer questions professionally and concisely. Encourage users to contact Gaurav
       }
 
       const data = await response.json();
-      const botResponse = data.choices[0]?.message?.content || "I'm sorry, I couldn't process that. Please try again or contact Gaurav directly at gauravpatil2516@gmail.com";
+      let botResponse = data.choices[0]?.message?.content || "I'm sorry, I couldn't process that. Please try again or contact Gaurav directly at gauravpatil2516@gmail.com";
+      
+      // Clean the response
+      botResponse = cleanText(botResponse);
+      
+      // Detect intent and generate action buttons
+      const actions = detectIntent(userMessage, botResponse);
 
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: botResponse,
-          isBot: true,
-        },
-      ]);
+      setIsTyping(false);
+      
+      // Simulate typing delay for better UX
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            text: botResponse,
+            isBot: true,
+            actions: actions.length > 0 ? actions : undefined,
+          },
+        ]);
+      }, 300);
     } catch (error) {
       console.error("Error calling Groq API:", error);
+      setIsTyping(false);
       setMessages((prev) => [
         ...prev,
         {
           text: "I'm having trouble connecting right now. Please try again later or contact Gaurav directly at gauravpatil2516@gmail.com",
           isBot: true,
+          actions: [
+            {
+              label: "Email Gaurav",
+              icon: <Mail className="w-4 h-4" />,
+              action: () => window.location.href = "mailto:gauravpatil2516@gmail.com",
+              variant: 'primary'
+            }
+          ]
         },
       ]);
     } finally {
       setIsLoading(false);
     }
   };
+
+  const quickReplies = [
+    "Tell me about your projects",
+    "What are your skills?",
+    "How can I contact you?",
+  ];
 
   return (
     <>
@@ -157,12 +298,15 @@ Answer questions professionally and concisely. Encourage users to contact Gaurav
       {isOpen && (
         <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100 transition-all duration-700 ease-out animate-in slide-in-from-bottom-12 slide-in-from-right-12 fade-in zoom-in-95">
           {/* Chat Header */}
-          <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-4 md:p-5 flex items-center justify-between rounded-t-3xl">
+          <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-4 md:p-5 flex items-center justify-between rounded-t-3xl shadow-lg">
             <div className="flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-700" style={{ animationDelay: '200ms' }}>
-              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30">
                 <MessageCircle className="w-5 h-5" />
               </div>
-              <h3 className="font-heading text-lg font-bold">Chat</h3>
+              <div>
+                <h3 className="font-heading text-lg font-bold">Chat with AI</h3>
+                <p className="text-xs text-white/70">Powered by Groq</p>
+              </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -174,27 +318,81 @@ Answer questions professionally and concisely. Encourage users to contact Gaurav
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 bg-gradient-to-b from-gray-50 to-white">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`flex ${msg.isBot ? "justify-start" : "justify-end"}`}
+                className={`flex ${msg.isBot ? "justify-start" : "justify-end"} animate-in fade-in slide-in-from-bottom-2 duration-300`}
               >
-                <div
-                  className={`max-w-[80%] p-3 md:p-4 rounded-2xl ${
-                    msg.isBot
-                      ? "bg-white text-[#4A4A4A] border border-gray-200"
-                      : "bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white"
-                  } text-sm md:text-base leading-relaxed shadow-sm`}
-                >
-                  {msg.text}
+                <div className="flex flex-col max-w-[85%] gap-2">
+                  <div
+                    className={`p-3 md:p-4 rounded-2xl ${
+                      msg.isBot
+                        ? "bg-white text-[#2A2A2A] border border-gray-200 rounded-tl-sm"
+                        : "bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white rounded-tr-sm"
+                    } text-sm md:text-base leading-relaxed shadow-sm`}
+                  >
+                    {msg.text}
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  {msg.isBot && msg.actions && msg.actions.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {msg.actions.map((action, actionIndex) => (
+                        <button
+                          key={actionIndex}
+                          onClick={action.action}
+                          className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 shadow-sm ${
+                            action.variant === 'primary'
+                              ? 'bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] text-white hover:shadow-md'
+                              : 'bg-white text-[#2A2A2A] border border-gray-300 hover:border-[#1A1A1A]'
+                          }`}
+                        >
+                          {action.icon}
+                          {action.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
+            
+            {/* Typing Indicator */}
+            {isTyping && (
+              <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                <div className="bg-white text-[#2A2A2A] border border-gray-200 rounded-2xl rounded-tl-sm p-4 shadow-sm">
+                  <div className="flex gap-1.5">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Chat Input */}
           <div className="p-4 border-t border-gray-200 bg-white rounded-b-3xl">
+            {/* Quick Replies */}
+            {messages.length === 1 && !isLoading && (
+              <div className="mb-3 flex flex-wrap gap-2">
+                {quickReplies.map((reply, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setMessage(reply);
+                      setTimeout(() => handleSendMessage(), 100);
+                    }}
+                    className="px-3 py-1.5 text-xs md:text-sm bg-gray-100 hover:bg-gray-200 text-[#2A2A2A] rounded-full transition-all duration-300 hover:scale-105 border border-gray-300"
+                  >
+                    {reply}
+                  </button>
+                ))}
+              </div>
+            )}
+            
             <div className="flex gap-2">
               <input
                 type="text"
@@ -203,7 +401,7 @@ Answer questions professionally and concisely. Encourage users to contact Gaurav
                 onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSendMessage()}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-50 focus:bg-white"
               />
               <button
                 onClick={handleSendMessage}
