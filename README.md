@@ -12,17 +12,25 @@ A modern, retro-styled portfolio showcasing AI/ML engineering projects, healthca
 
 ## 🛠️ Technologies Used
 
-- **Framework**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
-- **Fonts**: Google Fonts (Space Grotesk, Inter)
+
+
 
 ## 📦 Installation & Setup
 
+
+
 ### Prerequisites
+   ```bash
+   npm install tailwindcss postcss autoprefixer
+   ```
+2. **Check config files:**
+   - `postcss.config.js` should include `tailwindcss` and `autoprefixer` plugins.
+   - `tailwind.config.ts` should have correct `content` paths.
+3. **Restart dev server:**
+   ```bash
+   npm run dev
+   ```
+
 - Node.js 18+ and npm installed
 
 ### Local Development

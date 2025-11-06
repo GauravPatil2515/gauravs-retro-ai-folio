@@ -26,8 +26,10 @@ const BackgroundPattern = () => {
         ].map((tech, i) => (
           <span
             key={tech}
-            className="text-[11px] md:text-xs font-medium text-gray-400/60 select-none transition-all duration-500 hover:text-gray-600 hover:scale-110 hover:font-semibold cursor-default"
+            className="text-[11px] md:text-xs font-medium select-none transition-all duration-500 hover:scale-110 hover:font-semibold cursor-default"
             style={{
+              color: '#D4AF37',
+              opacity: 0.8,
               animation: `float ${10 + (i % 5) * 2}s ease-in-out infinite`,
               animationDelay: `${i * 0.1}s`
             }}
