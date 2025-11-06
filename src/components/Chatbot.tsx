@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Loader2, Mail, Briefcase, Code, FileText, ExternalLink } from "lucide-react";
+import { MessageCircle, ChevronDown, Send, Loader2, Mail, Briefcase, Code, FileText, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface Message {
@@ -389,24 +389,26 @@ RESPONSE STYLE:
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100 animate-in slide-in-from-bottom-8 slide-in-from-right-8 fade-in zoom-in-95 duration-500">
+        <div 
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-[90vw] max-w-md h-[500px] bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-2 border-gray-100"
+          style={{
+            animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+          }}
+        >
           {/* Chat Header */}
           <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white p-4 md:p-5 flex items-center justify-between rounded-t-3xl shadow-lg">
             <div className="flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-700" style={{ animationDelay: '200ms' }}>
-              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30">
-                <MessageCircle className="w-5 h-5 text-white" />
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center ring-2 ring-white/30 transition-all duration-300 hover:scale-110 group"
+                aria-label="Close chat"
+              >
+                <ChevronDown className="w-5 h-5 text-white group-hover:translate-y-0.5 transition-transform duration-300" />
+              </button>
               <div>
                 <h3 className="font-heading text-lg font-bold text-white">Chat with AI</h3>
               </div>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="w-8 h-8 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out hover:rotate-90 hover:scale-110"
-              aria-label="Close chat"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
           </div>
 
           {/* Chat Messages */}
