@@ -628,9 +628,12 @@ RESPONSE STYLE:
       {/* Chat Window */}
       {isOpen && (
         <div 
-          className="fixed bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 w-full h-[70vh] md:w-[90vw] md:max-w-md md:h-[500px] lg:h-[600px] bg-white md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-t-2 md:border-2 border-gray-100 md:rounded-t-3xl rounded-t-2xl"
+          className="fixed bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 w-full h-[70vh] md:w-[90vw] md:max-w-md md:h-[500px] lg:h-[600px] bg-white/80 backdrop-blur-xl md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-t-2 md:border-2 border-white/40 md:rounded-t-3xl rounded-t-2xl"
           style={{
-            animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+            animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            background: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)'
           }}
         >
           {/* Chat Header */}
@@ -661,7 +664,7 @@ RESPONSE STYLE:
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 bg-gradient-to-b from-gray-50 to-white">
+          <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 bg-transparent">
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -671,9 +674,9 @@ RESPONSE STYLE:
                   <div
                     className={`p-3 md:p-4 rounded-2xl ${
                       msg.isBot
-                        ? "bg-white text-[#2A2A2A] border border-gray-200 rounded-tl-sm"
-                        : "bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white rounded-tr-sm"
-                    } text-sm md:text-base leading-relaxed shadow-sm`}
+                        ? "bg-white/90 backdrop-blur-sm text-[#2A2A2A] border border-white/60 rounded-tl-sm shadow-lg"
+                        : "bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] text-white rounded-tr-sm shadow-lg"
+                    } text-sm md:text-base leading-relaxed`}
                   >
                     {msg.isBot ? formatText(msg.text) : msg.text}
                   </div>
@@ -718,7 +721,7 @@ RESPONSE STYLE:
           </div>
 
           {/* Chat Input */}
-          <div className="p-3 md:p-4 border-t border-gray-200 bg-white rounded-b-2xl md:rounded-b-3xl">
+          <div className="p-3 md:p-4 border-t border-white/40 bg-white/60 backdrop-blur-md rounded-b-2xl md:rounded-b-3xl">
             {/* Quick Replies */}
             {messages.length === 1 && !isLoading && (
               <div className="mb-2 md:mb-3 flex flex-wrap gap-1.5 md:gap-2">
@@ -729,7 +732,7 @@ RESPONSE STYLE:
                       setMessage(reply);
                       setTimeout(() => handleSendMessage(), 100);
                     }}
-                    className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm bg-gray-100 hover:bg-gray-200 text-[#2A2A2A] rounded-full transition-all duration-300 hover:scale-105 border border-gray-300"
+                    className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm bg-white/80 backdrop-blur-sm hover:bg-white text-[#2A2A2A] rounded-full transition-all duration-300 hover:scale-105 border border-white/60 shadow-sm"
                   >
                     {reply}
                   </button>
@@ -745,7 +748,7 @@ RESPONSE STYLE:
                 onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSendMessage()}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 px-3 md:px-4 py-2 md:py-3 rounded-full border-2 border-gray-200 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-50 focus:bg-white"
+                className="flex-1 px-3 md:px-4 py-2 md:py-3 rounded-full border-2 border-white/60 focus:border-[#1A1A1A] outline-none text-sm md:text-base transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-white/80 backdrop-blur-sm focus:bg-white/90"
               />
               <button
                 onClick={handleSendMessage}

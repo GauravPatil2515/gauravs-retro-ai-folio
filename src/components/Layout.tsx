@@ -222,7 +222,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="lg:hidden fixed inset-x-0 top-[88px] md:top-[104px] px-4 sm:px-6 animate-fade-in">
-            <div className="glass-effect rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 overflow-hidden backdrop-blur-xl mx-auto max-w-5xl">
+            <div 
+              className="rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/40 overflow-hidden backdrop-blur-xl mx-auto max-w-5xl"
+              style={{
+                background: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)'
+              }}
+            >
               <div className="flex flex-col py-2">
                 <Link
                   to="/"
