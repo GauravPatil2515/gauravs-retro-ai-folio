@@ -55,15 +55,18 @@ const Services = () => {
               <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
               
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mb-4 md:mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                  <service.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                <div className="relative flex-shrink-0 group/icon mb-4 md:mb-5">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E] to-[#B36B4D] rounded-xl blur-md opacity-20 group-hover/icon:opacity-40 transition-opacity duration-300"></div>
+                  <div className="relative bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-3 shadow-lg group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
                 </div>
                 
                 <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 md:mb-3 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">
                   {service.title}
                 </h3>
                 
-                <p className="text-[#4A4A4A] text-sm md:text-base mb-4 md:mb-5 leading-relaxed">
+                <p className="text-[#4A4A4A] text-sm mb-4 md:mb-5 leading-relaxed">
                   {service.description}
                 </p>
                 

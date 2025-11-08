@@ -60,7 +60,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-6xl w-full">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-3 md:mb-4">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-3 md:mb-4">
             Get in Touch
           </h1>
           <p className="text-sm md:text-base text-[#4A4A4A] max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ const Contact = () => {
               <h2 className="font-heading text-xl md:text-2xl font-bold text-[#1A1A1A] mb-2">
                 Get In Touch
               </h2>
-              <p className="text-[#4A4A4A] leading-relaxed mb-4 text-sm md:text-base">
+              <p className="text-[#4A4A4A] leading-relaxed mb-4 text-sm">
                 I'm always excited to work on new challenges. Whether you have a specific project in mind or just want to explore possibilities, let's start the conversation.
               </p>
 

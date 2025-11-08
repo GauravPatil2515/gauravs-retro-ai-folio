@@ -49,10 +49,12 @@ const Experience = () => {
             <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#CD7F5E]">
               <div className="absolute w-3 h-3 bg-[#CD7F5E] rounded-full -left-[7px] top-0 shadow-lg shadow-[#CD7F5E]/50" />
               <Card className="p-6 md:p-8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group">
-                <div className="mb-2 md:mb-3 text-xs md:text-sm text-[#CD7F5E] font-semibold">Jun 2025 - Aug 2025</div>
+                <div className="mb-3 md:mb-4">
+                  <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] rounded-full text-xs font-bold text-white shadow-md">Jun 2025 - Aug 2025</span>
+                </div>
                 <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">Pioneer Machines & Automation Pvt. Ltd</h3>
                 <div className="text-base md:text-lg text-[#4A4A4A] mb-3 md:mb-4 font-semibold">AI Intern</div>
-                <ul className="space-y-2 text-[#4A4A4A] text-sm md:text-base">
+                <ul className="space-y-2 text-[#4A4A4A] text-sm">
                   <li className="leading-relaxed flex items-start">
                     <span className="text-[#CD7F5E] mr-2">▸</span>
                     <span>Vertex AI + PubMed medical document analysis</span>
@@ -115,7 +117,7 @@ const Experience = () => {
                     {project.title}
                   </h3>
                   
-                  <p className="text-[#4A4A4A] text-sm md:text-base mb-4 leading-relaxed line-clamp-4">
+                  <p className="text-[#4A4A4A] text-sm mb-4 leading-relaxed line-clamp-4">
                     {project.description}
                   </p>
                   
@@ -123,7 +125,7 @@ const Experience = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-[#1A1A1A] rounded-lg text-xs md:text-sm font-medium hover:border-[#CD7F5E] hover:bg-[#CD7F5E]/5 hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
+                        className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-[#1A1A1A] rounded-lg text-xs font-medium hover:border-[#CD7F5E] hover:bg-[#CD7F5E]/5 hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
                       >
                         {tech}
                       </span>
