@@ -36,8 +36,8 @@ const Services = () => {
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6 hover:text-[#CD7F5E] transition-colors duration-300 cursor-default">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-6">
             Services & Solutions
           </h1>
           <p className="text-base md:text-lg text-[#4A4A4A] max-w-3xl mx-auto px-4">
@@ -49,8 +49,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16 md:mb-20 max-w-5xl mx-auto">{services.map((service, index) => (
             <Card 
               key={index}
-              className="p-6 md:p-8 bg-gradient-to-br from-white via-gray-50/30 to-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-[#1A1A1A] group relative overflow-hidden animate-scale-in"
-              style={{ animationDelay: service.delay }}
+              className="p-6 md:p-8 bg-gradient-to-br from-white via-gray-50/30 to-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-[#1A1A1A] group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
@@ -90,7 +89,7 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="max-w-4xl mx-auto">
           <Card className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] p-8 md:p-12 rounded-3xl shadow-2xl border-2 border-gray-800 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-all duration-500 group relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             

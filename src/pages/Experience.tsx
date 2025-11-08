@@ -39,14 +39,14 @@ const Experience = () => {
   return (
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-12 md:mb-16 text-center animate-fade-in-up">
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-12 md:mb-16 text-center">
           Where I've Worked
         </h1>
         
         <div className="max-w-3xl mx-auto">
           <div className="space-y-8 md:space-y-12">
             {/* Experience 1 */}
-            <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#CD7F5E] animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+            <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#CD7F5E]">
               <div className="absolute w-3 h-3 bg-[#CD7F5E] rounded-full -left-[7px] top-0 shadow-lg shadow-[#CD7F5E]/50" />
               <Card className="p-6 md:p-8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group">
                 <div className="mb-2 md:mb-3 text-xs md:text-sm text-[#CD7F5E] font-semibold">Jun 2025 - Aug 2025</div>
@@ -73,7 +73,7 @@ const Experience = () => {
 
         {/* Projects Section */}
         <div className="mt-20 md:mt-28">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center animate-fade-in-up">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center">
             Featured Projects
           </h2>
           
@@ -81,8 +81,7 @@ const Experience = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index}
-                className="group bg-white p-6 md:p-7 rounded-2xl border border-gray-200 hover:border-gray-300 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 animate-scale-in relative overflow-hidden"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="group bg-white p-6 md:p-7 rounded-2xl border border-gray-200 hover:border-gray-300 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>

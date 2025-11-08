@@ -64,16 +64,15 @@ const Achievements = () => {
     <div className="min-h-screen bg-background py-12 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl">
         {/* Achievements & Hackathons Section */}
-        <div className="animate-fade-in-up">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center md:text-left hover:text-[#CD7F5E] transition-colors duration-300 cursor-default">
+        <div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-8 md:mb-12 text-center md:text-left">
             Achievements & Hackathons
           </h2>
           <div className="grid gap-6 md:gap-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
-                className="bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 border border-gray-200 hover:border-gray-300 rounded-2xl group animate-scale-in relative"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 border border-gray-200 hover:border-gray-300 rounded-2xl group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
