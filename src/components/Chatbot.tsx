@@ -628,7 +628,7 @@ RESPONSE STYLE:
       {/* Chat Window */}
       {isOpen && (
         <div 
-          className="fixed bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 w-full h-[calc(100vh-60px)] md:w-[90vw] md:max-w-md md:h-[500px] bg-white md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-t-2 md:border-2 border-gray-100 md:rounded-t-3xl rounded-t-2xl"
+          className="fixed bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 w-full h-[70vh] md:w-[90vw] md:max-w-md md:h-[500px] lg:h-[600px] bg-white md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden border-t-2 md:border-2 border-gray-100 md:rounded-t-3xl rounded-t-2xl"
           style={{
             animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards'
           }}
