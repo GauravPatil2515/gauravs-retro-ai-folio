@@ -49,7 +49,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-10 md:mb-12 max-w-5xl mx-auto">{services.map((service, index) => (
             <Card 
               key={index}
-              className="p-5 md:p-6 bg-gradient-to-br from-white via-gray-50/30 to-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-[#1A1A1A] group relative overflow-hidden"
+              className="p-5 md:p-6 bg-gradient-to-br from-white via-gray-50/30 to-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
