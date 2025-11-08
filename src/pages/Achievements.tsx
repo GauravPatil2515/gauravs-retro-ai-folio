@@ -8,42 +8,54 @@ const Achievements = () => {
       description: "SIES Graduate School of Technology, Nerul",
       date: "2024 & 2025",
       icon: Trophy,
-      image: "/achievements/sih-certificate.png"
+      image: "/achievements/sih-certificate.png",
+      category: "Hackathon",
+      badge: "Participant"
     },
     {
       title: "Second Runner-Up - OxygenIgnite Hackathon",
       description: "NIT Goa (Stellar India)",
       date: "2025",
       icon: Trophy,
-      image: "/achievements/bnb-chain.jpg"
+      image: "/achievements/bnb-chain.jpg",
+      category: "Hackathon",
+      badge: "2nd Runner-Up"
     },
     {
       title: "Runner-up - BNB Chain Bombay Hackathon",
       description: "Blockchain hackathon competition",
       date: "2025",
       icon: Award,
-      image: "/achievements/oxygen-ignite.jpg"
+      image: "/achievements/oxygen-ignite.jpg",
+      category: "Hackathon",
+      badge: "Runner-Up"
     },
     {
       title: "Top 3 (Sustainability) - ByteCamp Hackathon",
       description: "Sustainability-focused hackathon",
       date: "2025",
       icon: Trophy,
-      image: "/achievements/bytecamp.png"
+      image: "/achievements/bytecamp.png",
+      category: "Hackathon",
+      badge: "Top 3"
     },
     {
       title: "Semi-finalist - Deep Blue Project Season 10",
       description: "Mastek's flagship project competition",
       date: "2025",
       icon: Award,
-      image: "/achievements/deep-blue.jpg"
+      image: "/achievements/deep-blue.jpg",
+      category: "Competition",
+      badge: "Semi-Finalist"
     },
     {
       title: "Winner - Cognition",
       description: "Department-Level Project Competition",
       date: "2025",
       icon: Trophy,
-      image: null
+      image: null,
+      category: "Award",
+      badge: "Winner"
     },
   ];
 
@@ -97,21 +109,36 @@ const Achievements = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="p-5 md:p-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-2 md:p-2.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <achievement.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                <div className="p-6 md:p-7">
+                  <div className="flex items-start gap-4 mb-4">
+                    {/* Enhanced Icon */}
+                    <div className="relative flex-shrink-0 group/icon">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E] to-[#B36B4D] rounded-xl blur-md opacity-20 group-hover/icon:opacity-40 transition-opacity duration-300"></div>
+                      <div className="relative bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-3 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+                        <achievement.icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
-                    <h3 className="font-heading text-base md:text-lg font-bold text-[#1A1A1A] leading-tight group-hover:text-[#CD7F5E] transition-colors duration-300">
+                    
+                    {/* Title with better typography */}
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-[#1A1A1A] leading-tight tracking-tight group-hover:text-[#CD7F5E] transition-colors duration-300 flex-1">
                       {achievement.title}
                     </h3>
                   </div>
-                  <p className="text-[#4A4A4A] text-xs md:text-sm mb-2 md:mb-3 leading-relaxed">
+                  
+                  <p className="text-[#4A4A4A] text-sm md:text-base mb-3 leading-relaxed font-medium">
                     {achievement.description}
                   </p>
-                  <p className="text-[#6B7280] text-xs md:text-sm font-medium">
-                    {achievement.date}
-                  </p>
+                  
+                  <div className="flex flex-wrap items-center gap-2">
+                    {achievement.date.split('&').map((year, idx) => (
+                      <span 
+                        key={idx}
+                        className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] rounded-full text-xs font-bold text-white shadow-md"
+                      >
+                        {year.trim()}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Card>
             ))}
