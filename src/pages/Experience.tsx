@@ -47,8 +47,8 @@ const Experience = () => {
           <div className="space-y-8 md:space-y-12">
             {/* Experience 1 */}
             <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#CD7F5E] animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
-              <div className="absolute w-3 h-3 bg-[#CD7F5E] rounded-full -left-[7px] top-0" />
-              <Card className="p-6 md:p-8 bg-white hover:shadow-2xl transition-all duration-500 rounded-2xl border border-gray-100 group">
+              <div className="absolute w-3 h-3 bg-[#CD7F5E] rounded-full -left-[7px] top-0 shadow-lg shadow-[#CD7F5E]/50" />
+              <Card className="p-6 md:p-8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group">
                 <div className="mb-2 md:mb-3 text-xs md:text-sm text-[#CD7F5E] font-semibold">Jun 2025 - Aug 2025</div>
                 <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">Pioneer Machines & Automation Pvt. Ltd</h3>
                 <div className="text-base md:text-lg text-[#4A4A4A] mb-3 md:mb-4 font-semibold">AI Intern</div>
@@ -81,10 +81,11 @@ const Experience = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index}
-                className="group bg-white p-6 md:p-7 rounded-2xl border-2 border-gray-100 hover:border-[#1A1A1A]/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-500 animate-scale-in relative overflow-hidden"
+                className="group bg-white p-6 md:p-7 rounded-2xl border border-gray-200 hover:border-gray-300 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 animate-scale-in relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
                 
                 {/* Image Placeholder */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-video rounded-xl flex items-center justify-center overflow-hidden mb-5">
@@ -123,7 +124,7 @@ const Experience = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="skill-tag px-3 py-1.5 text-xs md:text-sm font-medium rounded-lg"
+                        className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-[#1A1A1A] rounded-lg text-xs md:text-sm font-medium hover:border-[#CD7F5E] hover:bg-[#CD7F5E]/5 hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
                       >
                         {tech}
                       </span>

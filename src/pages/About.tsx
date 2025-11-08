@@ -47,7 +47,8 @@ const About = () => {
 
           {/* Right Column - Cards */}
           <div className="space-y-6 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
-            <Card className="p-6 md:p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 hover:shadow-xl transition-all duration-500 rounded-2xl border border-gray-100 group relative overflow-hidden">
+            <Card className="p-6 md:p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group relative overflow-hidden">
+              <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Brain className="w-6 h-6 md:w-7 md:h-7 text-white" />
@@ -63,7 +64,8 @@ const About = () => {
               </div>
             </Card>
 
-            <Card className="p-6 md:p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 hover:shadow-xl transition-all duration-500 rounded-2xl border border-gray-100 group relative overflow-hidden">
+            <Card className="p-6 md:p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group relative overflow-hidden">
+              <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Code className="w-6 h-6 md:w-7 md:h-7 text-white" />

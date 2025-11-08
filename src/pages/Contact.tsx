@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Send, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
@@ -56,159 +56,112 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 md:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16">
+    <div className="min-h-screen bg-background py-12 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6 animate-fade-in-up">
-            Let's Build Something Together
+        <div className="text-center mb-10 md:mb-12">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-4 md:mb-5 animate-fade-in-up">
+            Get in Touch
           </h1>
-          <p className="text-base md:text-lg text-[#4A4A4A] max-w-2xl mx-auto mb-8 leading-relaxed animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
-            Open to collaborations, internships, and interesting AI projects. 
-            Especially excited about healthcare tech and research opportunities.
+          <p className="text-base md:text-lg text-[#4A4A4A] max-w-2xl mx-auto animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+            Let's discuss your next project
           </p>
-          
-          {/* Contact Info Bar */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base animate-scale-in" style={{ animationDelay: '0.3s' }}>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 md:w-5 md:h-5 text-[#CD7F5E]" />
-              <a href="mailto:gauravpatil2516@gmail.com" className="text-[#1A1A1A] hover:text-[#CD7F5E] transition-smooth font-medium">
-                gauravpatil2516@gmail.com
-              </a>
+        </div>
+
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12">
+          {/* Left Column - Get In Touch */}
+          <div className="space-y-6 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
+            <div>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-3">
+                Get In Touch
+              </h2>
+              <p className="text-[#4A4A4A] leading-relaxed mb-6">
+                I'm always excited to work on new challenges. Whether you have a specific project in mind or just want to explore possibilities, let's start the conversation.
+              </p>
+
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-100 rounded-xl p-3 flex-shrink-0">
+                    <Mail className="w-5 h-5 text-[#1A1A1A]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#1A1A1A] mb-1">Email</h3>
+                    <a href="mailto:gauravpatil2516@gmail.com" className="text-[#4A4A4A] hover:text-[#1A1A1A] transition-colors">
+                      gauravpatil2516@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-100 rounded-xl p-3 flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-[#1A1A1A]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#1A1A1A] mb-1">Location</h3>
+                    <p className="text-[#4A4A4A]">Thane, Maharashtra, India</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-[#CD7F5E]" />
-              <a href="https://www.linkedin.com/in/gauravpatil2515/" target="_blank" rel="noopener noreferrer" className="text-[#1A1A1A] hover:text-[#CD7F5E] transition-smooth font-medium">
-                LinkedIn
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <Github className="w-4 h-4 md:w-5 md:h-5 text-[#CD7F5E]" />
-              <a href="https://github.com/GauravPatil2515" target="_blank" rel="noopener noreferrer" className="text-[#1A1A1A] hover:text-[#CD7F5E] transition-smooth font-medium">
-                GitHub
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-[#4A4A4A]">
-              <MapPin className="w-4 h-4 md:w-5 md:h-5 text-[#CD7F5E]" />
-              <span className="font-medium">Thane, Maharashtra, India</span>
+
+            <div>
+              <h3 className="font-heading text-lg font-bold text-[#1A1A1A] mb-3">Connect</h3>
+              <div className="flex gap-3">
+                <a
+                  href="https://github.com/GauravPatil2515"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-100 hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white p-3 rounded-xl transition-all duration-300"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/gauravpatil2515/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-100 hover:bg-[#0077B5] text-[#1A1A1A] hover:text-white p-3 rounded-xl transition-all duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:gauravpatil2516@gmail.com"
+                  className="bg-gray-100 hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white p-3 rounded-xl transition-all duration-300"
+                  aria-label="Email"
+                >
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <Card className="p-6 md:p-10 bg-white rounded-3xl border-2 border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2 text-center">
-              Send Me a Message
-            </h2>
-            <p className="text-[#4A4A4A] text-center mb-8">
-              Fill out the form and I'll get back to you within 24 hours
-            </p>
+          {/* Right Column - Quick Contact */}
+          <div className="animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
+            <div className="space-y-4">
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-5">
+                Quick Contact
+              </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#CD7F5E] focus:outline-none transition-colors duration-300 text-[#1A1A1A] bg-white"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#CD7F5E] focus:outline-none transition-colors duration-300 text-[#1A1A1A] bg-white"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#CD7F5E] focus:outline-none transition-colors duration-300 text-[#1A1A1A] bg-white"
-                  placeholder="Project Collaboration"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#CD7F5E] focus:outline-none transition-colors duration-300 text-[#1A1A1A] resize-none bg-white"
-                  placeholder="Tell me about your project or question..."
-                />
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 border-2 border-green-200 rounded-xl text-green-700 text-center font-semibold">
-                  ✓ Message sent successfully! I'll get back to you soon.
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl text-red-700 text-center font-semibold">
-                  ✗ Something went wrong. Please try again or email me directly.
-                </div>
-              )}
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] hover:from-[#CD7F5E] hover:to-[#B86F4E] text-white py-6 rounded-xl font-bold text-lg transition-all duration-500 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              <a
+                href="mailto:gauravpatil2516@gmail.com"
+                className="block w-full bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] hover:from-[#2A2A2A] hover:to-[#1A1A1A] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl text-center"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
-          </Card>
-        </div>
+                <Mail className="w-5 h-5 inline-block mr-2 mb-1" />
+                Send Email
+              </a>
 
-        {/* Bottom Note */}
-        <div className="text-center mt-12 md:mt-16 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-          <p className="text-sm md:text-base text-[#4A4A4A] max-w-2xl mx-auto">
-            Whether you have a project in mind, want to collaborate, or just want to say hi — 
-            I'm always happy to connect! 🚀
-          </p>
+              <button className="w-full bg-white border-2 border-gray-200 hover:border-[#1A1A1A] text-[#1A1A1A] py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] text-center">
+                <Calendar className="w-5 h-5 inline-block mr-2 mb-1" />
+                Book a Call
+              </button>
+
+              <p className="text-sm text-[#6B7280] text-center pt-2">
+                Book a 30-minute discovery call to discuss your project requirements.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

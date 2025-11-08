@@ -1,86 +1,34 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Code, Eye, Stethoscope, MessageSquare, Workflow, Check, ArrowRight, Clock, MapPin } from "lucide-react";
+import { Brain, Code, Check, ArrowRight, Clock, MapPin } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Brain,
-      title: "AI Model Development",
-      description: "Custom machine learning models tailored to your specific needs",
+      title: "AI/ML Development",
+      description: "End-to-end machine learning solutions from research to production",
       features: [
-        "Deep learning model architecture design",
-        "Computer vision solutions (image classification, object detection)",
-        "Natural Language Processing (text analysis, sentiment)",
-        "Model optimization and deployment"
+        "Custom deep learning models (PyTorch, TensorFlow)",
+        "Computer vision & medical imaging (YOLO, U-Net, ResNet)",
+        "NLP & RAG systems (LangChain, BERT, Hugging Face)",
+        "Model optimization, deployment & MLOps pipelines"
       ],
-      technologies: ["PyTorch", "TensorFlow", "OpenCV", "YOLO"],
+      technologies: ["PyTorch", "TensorFlow", "OpenCV", "LangChain", "FAISS"],
       delay: "0.2s"
-    },
-    {
-      icon: Stethoscope,
-      title: "Healthcare AI Solutions",
-      description: "Specialized AI applications for medical diagnosis and analysis",
-      features: [
-        "Medical image analysis (retinal, dermatological)",
-        "Disease detection and classification systems",
-        "Patient data analysis and insights",
-        "HIPAA-compliant model development"
-      ],
-      technologies: ["U-Net", "ResNet", "Medical Imaging"],
-      delay: "0.3s"
-    },
-    {
-      icon: MessageSquare,
-      title: "RAG & Chatbot Systems",
-      description: "Intelligent conversational AI with contextual understanding",
-      features: [
-        "Retrieval-Augmented Generation systems",
-        "Custom knowledge base integration",
-        "Multi-modal chatbot development",
-        "Fine-tuned language models"
-      ],
-      technologies: ["LangChain", "BERT", "Hugging Face", "Vector DBs"],
-      delay: "0.4s"
     },
     {
       icon: Code,
       title: "Backend Development",
-      description: "Scalable and robust API development for your applications",
+      description: "Scalable and robust backend systems with modern technologies",
       features: [
-        "RESTful API design and development",
-        "Database architecture and optimization",
-        "Authentication and security implementation",
-        "Cloud deployment and scaling"
+        "RESTful API design & development (FastAPI, Flask)",
+        "Database architecture (PostgreSQL, MongoDB, Redis)",
+        "Authentication, security & cloud deployment",
+        "Containerization with Docker & CI/CD integration"
       ],
-      technologies: ["FastAPI", "Flask", "PostgreSQL", "Docker"],
-      delay: "0.5s"
-    },
-    {
-      icon: Eye,
-      title: "Computer Vision Projects",
-      description: "Advanced visual recognition and processing systems",
-      features: [
-        "Real-time object detection and tracking",
-        "Image segmentation and analysis",
-        "Facial recognition systems",
-        "Custom CNN architectures"
-      ],
-      technologies: ["OpenCV", "YOLO", "Mask R-CNN"],
-      delay: "0.6s"
-    },
-    {
-      icon: Workflow,
-      title: "ML Pipeline Development",
-      description: "End-to-end machine learning workflow automation",
-      features: [
-        "Data preprocessing and feature engineering",
-        "Model training and validation pipelines",
-        "CI/CD for ML models (MLOps)",
-        "Model monitoring and retraining"
-      ],
-      technologies: ["Scikit-learn", "MLflow", "Docker", "Git"],
-      delay: "0.7s"
+      technologies: ["Python", "FastAPI", "Flask", "PostgreSQL", "Docker"],
+      delay: "0.3s"
     }
   ];
 
@@ -98,14 +46,14 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
-          {services.map((service, index) => (
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16 md:mb-20 max-w-5xl mx-auto">{services.map((service, index) => (
             <Card 
               key={index}
-              className="p-6 md:p-8 bg-gradient-to-br from-white via-gray-50/50 to-white hover:shadow-2xl transition-all duration-500 rounded-2xl border-2 border-gray-100 hover:border-[#CD7F5E]/30 group relative overflow-hidden animate-scale-in"
+              className="p-6 md:p-8 bg-gradient-to-br from-white via-gray-50/30 to-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-[#1A1A1A] group relative overflow-hidden animate-scale-in"
               style={{ animationDelay: service.delay }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
               
               <div className="relative z-10">
                 <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mb-4 md:mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
@@ -131,7 +79,7 @@ const Services = () => {
                 
                 <div className="flex flex-wrap gap-2">
                   {service.technologies.map((tech, idx) => (
-                    <span key={idx} className="px-3 py-1.5 bg-gradient-to-br from-gray-100 to-gray-50 text-[#1A1A1A] rounded-lg text-xs font-medium border border-gray-200 hover:border-[#CD7F5E] hover:bg-[#CD7F5E]/10 transition-all duration-300 cursor-default">
+                    <span key={idx} className="px-3 py-1.5 bg-gradient-to-br from-gray-100 to-gray-50 text-[#1A1A1A] rounded-lg text-xs font-medium border border-gray-200 hover:border-[#1A1A1A] hover:bg-gray-100 transition-all duration-300 cursor-default">
                       {tech}
                     </span>
                   ))}
