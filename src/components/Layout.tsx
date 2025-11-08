@@ -201,6 +201,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 >
                   Experience
                 </Link>
+                <a
+                  href="/resume/Gaurav_Patil_Resume.pdf"
+                  download="Gaurav_Patil_Resume.pdf"
+                  className="px-3 sm:px-4 md:px-5 py-2 text-sm md:text-[15px] font-semibold rounded-xl transition-all duration-500 bg-[#CD7F5E] hover:bg-[#B86F4E] text-white shadow-md hover:shadow-lg hover:scale-105"
+                >
+                  Resume
+                </a>
               </div>
 
               {/* Mobile Menu Button */}
@@ -274,6 +281,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 >
                   Experience
                 </Link>
+                <a
+                  href="/resume/Gaurav_Patil_Resume.pdf"
+                  download="Gaurav_Patil_Resume.pdf"
+                  className="mx-6 my-2 px-6 py-4 text-base font-semibold rounded-xl bg-[#CD7F5E] hover:bg-[#B86F4E] text-white text-center transition-all duration-300 hover:shadow-lg"
+                >
+                  Download Resume
+                </a>
               </div>
             </div>
           </div>
