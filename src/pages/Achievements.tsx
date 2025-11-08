@@ -90,12 +90,12 @@ const Achievements = () => {
                 <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
                 
                 {/* Image - Flexible aspect ratio based on actual image */}
-                <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden aspect-[4/3]">
                   {achievement.image ? (
                     <img 
                       src={achievement.image} 
                       alt={achievement.title}
-                      className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center gap-3 md:gap-4 p-4 aspect-[4/3]">
