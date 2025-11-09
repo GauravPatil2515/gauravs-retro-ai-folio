@@ -57,7 +57,7 @@ const About = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">
+                  <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#DAA520] transition-colors duration-300">
                     AI & Machine Learning
                   </h3>
                   <p className="text-[#5B5B5B] text-sm md:text-base leading-relaxed">
@@ -77,7 +77,7 @@ const About = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">
+                  <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#DAA520] transition-colors duration-300">
                     Full-Stack Development
                   </h3>
                   <p className="text-[#5B5B5B] text-sm md:text-base leading-relaxed">

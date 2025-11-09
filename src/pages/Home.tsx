@@ -4,11 +4,11 @@ const Home = () => {
   return (
     <section className="relative overflow-hidden h-screen flex items-center justify-center">
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 py-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pt-16 md:pt-20 pb-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Name */}
           <h1 
-            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-fade-in-up group cursor-default transition-colors duration-300 hover:text-[#CD7F5E]"
+            className="font-heading font-extrabold text-[#1A1A1A] mb-6 md:mb-8 animate-fade-in-up group cursor-default transition-colors duration-300 hover:text-[#DAA520]"
             style={{
               fontSize: 'clamp(2.5rem, 10vw, 6.5rem)',
               letterSpacing: '-0.03em',
@@ -29,7 +29,7 @@ const Home = () => {
               animationDelay: '0.2s'
             }}
           >
-            I am a <span className="font-bold transition-colors duration-300 hover:text-[#CD7F5E]">Backend Developer & AI/ML Engineer</span>
+            I am a <span className="font-bold transition-colors duration-300 hover:text-[#DAA520]">Backend Developer & AI/ML Engineer</span>
           </p>
           
           {/* Description */}
@@ -43,7 +43,7 @@ const Home = () => {
               animationDelay: '0.4s'
             }}
           >
-            I create <span className="transition-colors duration-300 hover:text-[#CD7F5E]">innovative AI applications</span> and <span className="transition-colors duration-300 hover:text-[#CD7F5E]">scalable backend solutions</span> that drive real-world impact
+            I create <span className="transition-colors duration-300 hover:text-[#DAA520]">innovative AI applications</span> and <span className="transition-colors duration-300 hover:text-[#DAA520]">scalable backend solutions</span> that drive real-world impact
           </p>
           
           {/* CTA Buttons */}
@@ -86,7 +86,7 @@ const Home = () => {
             </a>
             <a
               href="mailto:gauravpatil2516@gmail.com"
-              className="group w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center hover:border-[#CD7F5E] hover:bg-[#CD7F5E] transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
+              className="group w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center hover:border-[#DAA520] hover:bg-[#DAA520] transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
               aria-label="Email"
             >
               <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A] group-hover:text-white transition-colors duration-300" />

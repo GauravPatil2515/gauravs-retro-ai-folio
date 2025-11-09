@@ -86,7 +86,7 @@ const Achievements = () => {
                 key={index}
                 className="bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 border border-gray-200 hover:border-gray-300 rounded-2xl group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#DAA520]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
                 
                 {/* Image - Flexible aspect ratio based on actual image */}
@@ -113,14 +113,14 @@ const Achievements = () => {
                   <div className="flex items-start gap-4 mb-4">
                     {/* Enhanced Icon */}
                     <div className="relative flex-shrink-0 group/icon">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E] to-[#B36B4D] rounded-xl blur-md opacity-20 group-hover/icon:opacity-40 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#DAA520] to-[#B8860B] rounded-xl blur-md opacity-20 group-hover/icon:opacity-40 transition-opacity duration-300"></div>
                       <div className="relative bg-gradient-to-br from-[#1A1A1A] to-[#2A2A2A] rounded-xl p-3 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
                         <achievement.icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
                     
                     {/* Title with better typography */}
-                    <h3 className="font-heading text-lg md:text-xl font-bold text-[#1A1A1A] leading-tight tracking-tight group-hover:text-[#CD7F5E] transition-colors duration-300 flex-1">
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-[#1A1A1A] leading-tight tracking-tight group-hover:text-[#DAA520] transition-colors duration-300 flex-1">
                       {achievement.title}
                     </h3>
                   </div>

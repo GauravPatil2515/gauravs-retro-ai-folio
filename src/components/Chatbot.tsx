@@ -618,7 +618,7 @@ RESPONSE STYLE:
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#CD7F5E] hover:via-[#B86F4E] hover:to-[#CD7F5E] text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_50px_rgba(205,127,94,0.4)] transition-all duration-500 hover:scale-110 z-50 flex items-center justify-center group animate-in fade-in zoom-in-95 duration-700"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] hover:from-[#DAA520] hover:via-[#B8860B] hover:to-[#DAA520] text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_50px_rgba(218,165,32,0.4)] transition-all duration-500 hover:scale-110 z-50 flex items-center justify-center group animate-in fade-in zoom-in-95 duration-700"
           aria-label="Open chat"
         >
           <MessageCircle className="w-6 h-6 md:w-7 md:h-7 group-hover:rotate-12 transition-transform duration-300" />

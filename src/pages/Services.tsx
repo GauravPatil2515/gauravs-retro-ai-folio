@@ -59,7 +59,7 @@ const Services = () => {
                   <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 
-                <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">
+                <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#DAA520] transition-colors duration-300">
                   {service.title}
                 </h3>
                 
@@ -70,7 +70,7 @@ const Services = () => {
                 <ul className="space-y-1.5 mb-4 md:mb-5">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-[#5B5B5B] group/item hover:text-[#1A1A1A] transition-colors duration-300">
-                      <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#CD7F5E] mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300" />
+                      <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#DAA520] mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -105,7 +105,7 @@ const Services = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6 md:mb-8">
                 <Button
                   onClick={() => window.location.href = '/contact'}
-                  className="group relative bg-[#CD7F5E] hover:bg-[#B86F4E] text-white px-6 md:px-8 py-4 md:py-5 rounded-2xl text-sm md:text-base font-semibold transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden"
+                  className="group relative bg-[#DAA520] hover:bg-[#B8860B] text-white px-6 md:px-8 py-4 md:py-5 rounded-2xl text-sm md:text-base font-semibold transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   <span className="relative z-10 flex items-center gap-2">
@@ -124,11 +124,11 @@ const Services = () => {
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center text-xs md:text-sm text-gray-400">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#CD7F5E]" />
+                  <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#DAA520]" />
                   <span>Response within 24 hours</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#CD7F5E]" />
+                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#DAA520]" />
                   <span>Based in Thane, Maharashtra</span>
                 </div>
               </div>

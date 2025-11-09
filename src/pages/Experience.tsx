@@ -46,25 +46,25 @@ const Experience = () => {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-8 md:space-y-12">
             {/* Experience 1 */}
-            <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#CD7F5E]">
-              <div className="absolute w-3 h-3 bg-[#CD7F5E] rounded-full -left-[7px] top-0 shadow-lg shadow-[#CD7F5E]/50" />
+            <div className="relative pl-6 md:pl-8 border-l-[3px] border-[#DAA520]">
+              <div className="absolute w-3 h-3 bg-[#DAA520] rounded-full -left-[7px] top-0 shadow-lg shadow-[#DAA520]/50" />
               <Card className="p-6 md:p-8 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 rounded-2xl border border-gray-200 hover:border-gray-300 group">
                 <div className="mb-3 md:mb-4">
                   <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] rounded-full text-xs font-bold text-white shadow-md">Jun 2025 - Aug 2025</span>
                 </div>
-                <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#CD7F5E] transition-colors duration-300">Pioneer Machines & Automation Pvt. Ltd</h3>
+                <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#DAA520] transition-colors duration-300">Pioneer Machines & Automation Pvt. Ltd</h3>
                 <div className="text-base md:text-lg text-[#4A4A4A] mb-3 md:mb-4 font-semibold">AI Intern</div>
                 <ul className="space-y-2 text-[#4A4A4A] text-sm">
                   <li className="leading-relaxed flex items-start">
-                    <span className="text-[#CD7F5E] mr-2">▸</span>
+                    <span className="text-[#DAA520] mr-2">▸</span>
                     <span>Vertex AI + PubMed medical document analysis</span>
                   </li>
                   <li className="leading-relaxed flex items-start">
-                    <span className="text-[#CD7F5E] mr-2">▸</span>
+                    <span className="text-[#DAA520] mr-2">▸</span>
                     <span>Built retrieval workflows improving clinical data throughput</span>
                   </li>
                   <li className="leading-relaxed flex items-start">
-                    <span className="text-[#CD7F5E] mr-2">▸</span>
+                    <span className="text-[#DAA520] mr-2">▸</span>
                     <span>Data scraping, chunking, image matching, ML pipelines</span>
                   </li>
                 </ul>
@@ -85,7 +85,7 @@ const Experience = () => {
                 key={index}
                 className="group bg-white p-6 md:p-7 rounded-2xl border border-gray-200 hover:border-gray-300 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-500 relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#CD7F5E]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#DAA520]/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-px bg-gradient-to-b from-white/50 to-transparent rounded-2xl pointer-events-none"></div>
                 
                 {/* Image Placeholder */}
@@ -108,12 +108,12 @@ const Experience = () => {
                 
                 <div className="relative z-10">
                   <div className="mb-3">
-                    <span className="inline-block px-3 py-1 bg-[#CD7F5E]/10 text-[#CD7F5E] text-xs font-semibold rounded-full">
+                    <span className="inline-block px-3 py-1 bg-[#DAA520]/10 text-[#DAA520] text-xs font-semibold rounded-full">
                       {project.category}
                     </span>
                   </div>
                   
-                  <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1A1A1A] mb-3 group-hover:text-[#CD7F5E] transition-colors duration-300">
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1A1A1A] mb-3 group-hover:text-[#DAA520] transition-colors duration-300">
                     {project.title}
                   </h3>
                   
@@ -125,7 +125,7 @@ const Experience = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-[#1A1A1A] rounded-lg text-xs font-medium hover:border-[#CD7F5E] hover:bg-[#CD7F5E]/5 hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
+                        className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-[#1A1A1A] rounded-lg text-xs font-medium hover:border-[#DAA520] hover:bg-[#DAA520]/5 hover:scale-105 transition-all duration-300 cursor-default shadow-sm"
                       >
                         {tech}
                       </span>
@@ -156,7 +156,7 @@ const Experience = () => {
                         className="flex-1"
                       >
                         <Button
-                          className="w-full bg-[#CD7F5E] text-white hover:bg-[#B86F4E] transition-all duration-300 rounded-xl font-semibold"
+                          className="w-full bg-[#DAA520] text-white hover:bg-[#B8860B] transition-all duration-300 rounded-xl font-semibold"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Demo
