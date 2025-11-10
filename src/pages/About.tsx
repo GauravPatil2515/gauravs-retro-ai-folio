@@ -78,10 +78,10 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="font-heading text-lg md:text-xl font-bold mb-2 text-[#1A1A1A] group-hover:text-[#DAA520] transition-colors duration-300">
-                    Full-Stack Development
+                    Backend Development
                   </h3>
                   <p className="text-[#5B5B5B] text-sm md:text-base leading-relaxed">
-                    End-to-end web applications with modern frameworks
+                    Scalable backend systems with modern frameworks and APIs
                   </p>
                 </div>
               </div>
